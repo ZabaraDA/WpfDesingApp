@@ -27,12 +27,18 @@ namespace WpfDesingApp.windows
         {   
             DataContext = pathDataClass;
             InitializeComponent();
-            ExitData.Data = Geometry.Parse(PathDataClass.exitData);
-            WindowStateData.Data = Geometry.Parse(PathDataClass.fullScreenData);
-            HideData.Data = Geometry.Parse(PathDataClass.hideData);
-            ChangeData.Data = Geometry.Parse(PathDataClass.changeData);
-
-
+            ExitPath.Data = Geometry.Parse(PathDataClass.exitData);
+            WindowStatePath.Data = Geometry.Parse(PathDataClass.fullScreenData);
+            HidePath.Data = Geometry.Parse(PathDataClass.hideData);
+            ChangePath.Data = Geometry.Parse(PathDataClass.changeData);
+            SettingsPath.Data = Geometry.Parse(PathDataClass.settingsData);
+            ProductPath.Data = Geometry.Parse(PathDataClass.productData);
+            UserPath.Data = Geometry.Parse(PathDataClass.userData);
+            AddProductPath.Data =Geometry.Parse(PathDataClass.addProductData);
+            AccountPath.Data = Geometry.Parse(PathDataClass.accountData);
+            UserPath.Data= Geometry.Parse(PathDataClass.userData);
+            ControlPanelPath.Data = Geometry.Parse(PathDataClass.reduceData);
+            ProfilePath.Data = Geometry.Parse(PathDataClass.profileData);
         }
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -65,12 +71,12 @@ namespace WpfDesingApp.windows
             if (WindowState == WindowState.Normal)
             {
                 WindowState = WindowState.Maximized;
-                WindowStateData.Data = Geometry.Parse(PathDataClass.collapseData);
+                WindowStatePath.Data = Geometry.Parse(PathDataClass.collapseData);
             }
             else
             {
                 WindowState = WindowState.Normal;
-                WindowStateData.Data = Geometry.Parse(PathDataClass.fullScreenData);
+                WindowStatePath.Data = Geometry.Parse(PathDataClass.fullScreenData);
             }
         }
 
@@ -116,11 +122,11 @@ namespace WpfDesingApp.windows
             if (panelState == true)
             {
                 doubleAnimation.From = ControlPanel.ActualWidth;
-                doubleAnimation.To = 90;
+                doubleAnimation.To = 80;
                 doubleAnimation.Duration = TimeSpan.FromSeconds(0.5);
                 doubleAnimation.EasingFunction = new QuadraticEase();
                 ControlPanel.BeginAnimation(WidthProperty, doubleAnimation);
-                ControlPanelImage.Source = new BitmapImage( new Uri("/images/ExpandImage.png", UriKind.Relative));
+                ControlPanelPath.Data = Geometry.Parse(PathDataClass.expandData);
                 panelState = false;
             }
             else if (panelState == false)
@@ -130,7 +136,7 @@ namespace WpfDesingApp.windows
                 doubleAnimation.Duration = TimeSpan.FromSeconds(0.5);
                 doubleAnimation.EasingFunction = new QuadraticEase();
                 ControlPanel.BeginAnimation(WidthProperty, doubleAnimation);
-                ControlPanelImage.Source = new BitmapImage(new Uri("/images/ReduceImage.png", UriKind.Relative));
+                ControlPanelPath.Data = Geometry.Parse(PathDataClass.reduceData);
                 panelState =true;
             }
 

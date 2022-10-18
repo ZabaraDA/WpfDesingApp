@@ -161,6 +161,7 @@
     <Content Include="resources\ReducePath.svg" />
     <Content Include="resources\RemovePath.svg" />
     <Content Include="resources\SettingsPath.svg" />
+    <Content Include="resources\UserData.svg" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
