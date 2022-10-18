@@ -1,9 +1,10 @@
-﻿<Window x:Class="WpfDesingApp.windows.MenuWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfDesingApp.windows"
+        xmlns:csclasses="clr-namespace:WpfDesingApp.csclasses" x:Class="WpfDesingApp.windows.MenuWindow"
         mc:Ignorable="d"
         Title="MenuWindow" Height="900" Width="1440"
         AllowsTransparency="True" Background="Transparent" 
@@ -12,8 +13,8 @@
         FontSize="24">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="60"></RowDefinition>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="60"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
         <Border Grid.RowSpan="3" CornerRadius="5" Grid.Row="0" Background="Black" Grid.ColumnSpan="2"/>
         <Border Grid.RowSpan="3" CornerRadius="5" Grid.Row="0" Margin="1" Grid.ColumnSpan="2">
@@ -32,74 +33,97 @@
                 </LinearGradientBrush>
             </Border.Background>
         </Border>
-        <Grid Width="300" Grid.Row="1" HorizontalAlignment="Left" Name="ControlPanel">
-        <StackPanel>
-            <Button x:Name="ControlPanelButton" Click="ControlPanelButton_Click" HorizontalContentAlignment="Right">
-                <StackPanel Orientation="Horizontal">
-                    <Image Source="/images/ReduceImage.png" Width="70" Margin="10 0 10 0" Name="ControlPanelImage"></Image>
-                </StackPanel>
-            </Button>
-            <Button x:Name="ProfileButton" Click="ProfileButton_Click" HorizontalContentAlignment="Left">
-                <StackPanel Orientation="Horizontal">
-                    <Image Source="/images/ProfileImage.png" Width="70" Margin="10 0 10 0"></Image>
-                    <Label Content="Профиль" VerticalContentAlignment="Center"></Label>
-                </StackPanel>
-            </Button>
-            <Button x:Name="RegistrationUserButton" Click="RegistrationUserButton_Click" HorizontalContentAlignment="Left">
-                <StackPanel Orientation="Horizontal">
-                    <Image Source="/images/AccountImage.png" Width="70" Margin="10 0 10 0"></Image>
-                    <Label Content="Аккаунты" VerticalContentAlignment="Center"></Label>
-                </StackPanel>
-            </Button>
-            <Button x:Name="UserButton" Click="UserButton_Click" HorizontalContentAlignment="Left">
-                <StackPanel Orientation="Horizontal">
-                    <Image Source="/images/UserImage.png" Width="70" Margin="10 0 10 0"></Image>
-                    <Label Content="Пользователи" VerticalContentAlignment="Center"></Label>
-                </StackPanel>
-            </Button>
-            <Button x:Name="AddProductsButton" Click="AddProductsButton_Click" HorizontalContentAlignment="Left" >
-                <StackPanel Orientation="Horizontal">
-                    <Image Source="/images/AddProductImage.png" Width="70" Margin="10 0 10 0"></Image>
-                    <Label Content="Добавить товар" VerticalContentAlignment="Center"></Label>
-                </StackPanel>
-            </Button>
-            <Button x:Name="ProductsButton" Click="ProductsButton_Click" HorizontalContentAlignment="Left">
-                <StackPanel Orientation="Horizontal">
-                    <Image Source="/images/ProductImage.png" Width="70" Margin="10 0 10 0"></Image>
-                    <Label Content="Товары" VerticalContentAlignment="Center"></Label>
-                </StackPanel>
-            </Button>
-            <Button x:Name="SettingsButton" Click="SettingsButton_Click" HorizontalContentAlignment="Left">
-                <StackPanel Orientation="Horizontal">
-                    <Image Source="/images/SettingsImage.png" Width="70" Margin="10 0 10 0"></Image>
-                    <Label Content="Настройки" VerticalContentAlignment="Center"></Label>
-                </StackPanel>
-            </Button>
-        </StackPanel>
-        <Button x:Name="ChangeAccountButton" Click="ChangeAccountButton_Click" VerticalAlignment="Bottom" HorizontalContentAlignment="Left" Grid.Row="1" Margin="0 0 0 10">
-            <StackPanel Orientation="Horizontal">
-                <Image Source="/images/ChangeImage.png" Width="70" Margin="10 0 10 0"></Image>
-                <Label Content="Сменить аккаунт" VerticalContentAlignment="Center"></Label>
+        <Grid Width="300" Grid.Row="1" HorizontalAlignment="Left" x:Name="ControlPanel">
+            <StackPanel>
+                <Button x:Name="ControlPanelButton" Click="ControlPanelButton_Click" HorizontalContentAlignment="Right">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/images/ReduceImage.png" Width="70" Margin="10 0 10 0" x:Name="ControlPanelImage"/>
+                    </StackPanel>
+                </Button>
+                <Button x:Name="ProfileButton" Click="ProfileButton_Click" HorizontalContentAlignment="Left">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/images/ProfileImage.png" Width="70" Margin="10 0 10 0"/>
+                        <Label Content="Профиль" VerticalContentAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+                <Button x:Name="RegistrationUserButton" Click="RegistrationUserButton_Click" HorizontalContentAlignment="Left">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/images/AccountImage.png" Width="70" Margin="10 0 10 0"/>
+                        <Label Content="Аккаунты" VerticalContentAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+                <Button x:Name="UserButton" Click="UserButton_Click" HorizontalContentAlignment="Left">
+                    <StackPanel Orientation="Horizontal">
+
+                        <Label Content="Пользователи" VerticalContentAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+                <Button x:Name="AddProductsButton" Click="AddProductsButton_Click" HorizontalContentAlignment="Left">
+                    <StackPanel Orientation="Horizontal">
+                        <Path Data="M908.138,698.12c-30.984,6.925-104.544,14.916-148.679,14.916-6.568,        
+                              0-13.8-.181-21.433-0.5-4.1,19.67-12.425,36.372-28.5,39.961-43.666,             
+                              9.749-147.332,21-209.532,21s-165.866-11.25-209.532-21c-16.079-3.59-24.4-20.3-28.5-39.979-7.638.324-14.871,   
+                              0.5-21.442,0.5-44.136,0-117.695-7.991-148.68-14.916s-21.4-82.572-21.4-82.572,                            
+                              7.3-31.407,42.476-83.072c10.729-15.756,29-37.15,44.189-52.918a100.109,100.109,                     
+                              0,1,1,166.975.811c4.472,4.664,9.19,9.8,13.891,15.109,13.76-17.253,30.087-35.734,                 
+                              44.471-50.646a141.083,141.083,0,1,1,235.317,1.14c14.157,14.753,30.059,32.8,43.5,                  
+                              49.659,5.015-5.671,10.053-11.137,14.791-16.055a100.11,100.11,0,1,1,166.976.811c15.034,              
+                              15.684,32.864,36.618,43.411,52.107,35.093,51.539,43.105,83.072,43.105,83.072S939.122,691.194,     
+                              908.138,698.12Zm-761-142.331a177.233,177.233,0,0,0-30.224,82.335c42.547,27.953,141.667,21.19,    
+                              141.667,21.19l1.73-23.061s9.244-39.661,52.314-105.62a177.544,177.544,0,0,0-22-19.032,100.15,100.15,  
+                              0,0,1-100.238-.422A179.287,179.287,0,0,0,147.133,555.789ZM240.858,355.54a69.115,69.115,0,1,0,69.068,  
+                              69.115A69.092,69.092,0,0,0,240.858,355.54Zm259.617-85.287a97.3,97.3,0,1,0,97.337,97.3A97.316,97.316,0 
+                              ,0,0,500.475,270.253ZM570.6,489.947a141.274,141.274,0,0,1-141.265-.594,252.507,252.507,0,0,0-60.949,62.8A249.328  
+                              ,249.328,0,0,0,325.8,668.059C366.924,683.389,426.171,698.5,500,698.5c73.312,0,132.251-14.9,173.343-30.119a249.271,  
+                              249.271,0,0,0-42.624-116.226A252.707,252.707,0,0,0,570.6,489.947ZM759.8,355.558a69.115,69.115,0,1,0,69.068,69.115A69.091,
+                              69.091,0,0,0,759.8,355.558Zm92.414,200.249a179.41,179.41,0,0,0-42.654-44.188,100.15,100.15,0,0,1-100.238-.422,177.32,177.32, 
+                              0,0,0-22.736,19.581c42.97,65.725,53.1,105.475,53.1,105.475l1.731,23.067s55.5,10.767,141.044-20.951A177.186,                   
+                              177.186,0,0,0,852.214,555.807Z" Fill="Black" Stroke="White"  Stretch="Fill" Height="582" >
+                            <Path.LayoutTransform>
+                                <ScaleTransform ScaleX="0.07" ScaleY="0.07"/>
+                            </Path.LayoutTransform>
+                        </Path>
+
+
+                        <Label Content="Добавить товар" VerticalContentAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+                <Button x:Name="ProductsButton" Click="ProductsButton_Click" HorizontalContentAlignment="Left">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/images/ProductImageNew.png" Width="70" Margin="10 0 10 0"/>
+                        <Label Content="Товары" VerticalContentAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+                <Button x:Name="SettingsButton" Click="SettingsButton_Click" HorizontalContentAlignment="Left">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/images/SettingsImage.png" Width="70" Margin="10 0 10 0"/>
+                        <Label Content="Настройки" VerticalContentAlignment="Center"/>
+                    </StackPanel>
+                </Button>
             </StackPanel>
-        </Button>
+            <Button x:Name="ChangeAccountButton" Click="ChangeAccountButton_Click" VerticalAlignment="Bottom" HorizontalContentAlignment="Left" Grid.Row="1" Margin="0 0 0 10">
+                <StackPanel Orientation="Horizontal">
+                    <Path Fill="Black" Stretch="Fill" Name="ChangeData" Margin="10 " Height="55" Width="70"></Path>
+                    <Label Content="Сменить аккаунт" VerticalContentAlignment="Center"/>
+                </StackPanel>
+            </Button>
         </Grid>
         <StackPanel  HorizontalAlignment="Right" Margin="2" Orientation="Horizontal">
             <Button Background="{x:Null}" Width="58" HorizontalAlignment="Left" x:Name="CollapseButton" Click="CollapseButton_Click">
-                <Image Source="/images/RemoveImage.png"></Image>
+                <Path  Fill="Black" Stretch="Fill" Name="HideData" Margin="10 40 10 10"></Path>
             </Button>
             <Button Background="{x:Null}" Width="58" HorizontalAlignment="Left" x:Name="FullScreenButton" Click="FullScreenButton_Click">
-                <Image Source="/images/CollapseImage.png"></Image>
+                <Path  Fill="Black" Stretch="Fill" Name="WindowStateData" Margin="10"></Path>
             </Button>
             <Button Background="{x:Null}" Width="58" HorizontalAlignment="Left" x:Name="ExitButton" Click="ExitButton_Click">
-                <Image Source="/images/ExitImage.png"></Image>
+                <Path  Fill="Black" Stretch="Fill" Name="ExitData" Margin="12"></Path>
             </Button>
         </StackPanel>
-        
-            <Image Source="/images/logo.png" Height="50" Margin="10 2 90 2" HorizontalAlignment="Left" ></Image>
+
+        <Image Source="/images/logo.png" Height="50" Margin="10 2 90 2" HorizontalAlignment="Left" />
         <Label Content="Главное меню - Приветствие" VerticalAlignment="Center" 
                Foreground="White" 
                HorizontalContentAlignment="Center" Margin="180 0 180 0" 
-               FontFamily="Bahnschrift SemiBold Condensed">
-        </Label>
+               FontFamily="Bahnschrift SemiBold Condensed"/>
     </Grid>
 </Window>

@@ -1,0 +1,11 @@
+<svg id="Стандарт_окна" data-name="Стандарт окна" xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 1000 1000">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #2f2f2f;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path id="Фигура_321_520" data-name="Фигура 321 520" class="cls-1" d="M725.75,664.918v64.8l-523.385.321v-0.321h-0.007V335.085h71.873v-65.12H797.624V664.6ZM237.283,369.866v325.39H690.825V369.866H237.283ZM762.7,304.746H309.157v30.339H725.75V630.136H762.7V304.746Z"/>
+</svg>

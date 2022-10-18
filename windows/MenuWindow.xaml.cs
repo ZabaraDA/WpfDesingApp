@@ -14,29 +14,36 @@ using System.Windows.Shapes;
 using WpfDesingApp.windows;
 using System.Windows.Threading;
 using System.Windows.Media.Animation;
+using WpfDesingApp.csclasses;
 
 namespace WpfDesingApp.windows
 {  
     public partial class MenuWindow : Window
-    {
-        //DispatcherTimer dispatcherTimer = new DispatcherTimer();
+    {       
         DoubleAnimation doubleAnimation = new DoubleAnimation();
+        PathDataClass pathDataClass = new PathDataClass();
         bool panelState = true;
         public MenuWindow()
-        {
+        {   
+            DataContext = pathDataClass;
             InitializeComponent();
+            ExitData.Data = Geometry.Parse(PathDataClass.exitData);
+            WindowStateData.Data = Geometry.Parse(PathDataClass.fullScreenData);
+            HideData.Data = Geometry.Parse(PathDataClass.hideData);
+            ChangeData.Data = Geometry.Parse(PathDataClass.changeData);
+
 
         }
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            //if(WindowState == WindowState.Normal)
+            //if (WindowState == WindowState.Normal)
             //{
             //    this.DragMove();
             //}
-            //else if(WindowState == WindowState.Maximized)
+            //else if (WindowState == WindowState.Maximized)
             //{
-            //    WindowState = WindowState.Normal;  
+            //    WindowState = WindowState.Normal;
             //}
             this.DragMove();
         }
@@ -58,10 +65,12 @@ namespace WpfDesingApp.windows
             if (WindowState == WindowState.Normal)
             {
                 WindowState = WindowState.Maximized;
+                WindowStateData.Data = Geometry.Parse(PathDataClass.collapseData);
             }
             else
             {
                 WindowState = WindowState.Normal;
+                WindowStateData.Data = Geometry.Parse(PathDataClass.fullScreenData);
             }
         }
 

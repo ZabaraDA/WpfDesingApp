@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="csclasses\PathDataClass.cs" />
     <Compile Include="windows\CreateCaptchaWindow.xaml.cs">
       <DependentUpon>CreateCaptchaWindow.xaml</DependentUpon>
     </Compile>
@@ -138,5 +139,29 @@
   <ItemGroup>
     <Resource Include="images\ChangeImage.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\AddProductImageNew.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\ProductImageNew.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="images\ChangeImage.svg" />
+    <Content Include="images\UserParh.svg" />
+    <Content Include="resources\AccountPath.svg" />
+    <Content Include="resources\AddProductPath.svg" />
+    <Content Include="resources\ChangeImage.svg" />
+    <Content Include="resources\CollapsePath.svg" />
+    <Content Include="resources\ExitPath.svg" />
+    <Content Include="resources\ExpandPath1.svg" />
+    <Content Include="resources\FullScreenPath.svg" />
+    <Content Include="resources\HidePath.svg" />
+    <Content Include="resources\ProductPath.svg" />
+    <Content Include="resources\ProfilePath.svg" />
+    <Content Include="resources\ReducePath.svg" />
+    <Content Include="resources\RemovePath.svg" />
+    <Content Include="resources\SettingsPath.svg" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
