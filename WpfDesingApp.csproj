@@ -56,6 +56,24 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="csclasses\PathDataClass.cs" />
+    <Compile Include="pages\AddProductPage.xaml.cs">
+      <DependentUpon>AddProductPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\ProductPage.xaml.cs">
+      <DependentUpon>ProductPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\ProfilePage.xaml.cs">
+      <DependentUpon>ProfilePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\RegistrationPage.xaml.cs">
+      <DependentUpon>RegistrationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\SettingsPage.xaml.cs">
+      <DependentUpon>SettingsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\UserDataPage.xaml.cs">
+      <DependentUpon>UserDataPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="pages\WelcomePage.xaml.cs">
       <DependentUpon>WelcomePage.xaml</DependentUpon>
     </Compile>
@@ -77,6 +95,30 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="pages\AddProductPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pages\ProductPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pages\ProfilePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pages\RegistrationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pages\SettingsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pages\UserDataPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="pages\WelcomePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -153,8 +195,10 @@
     <Resource Include="images\ProductImageNew.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="images\CAPTCHA.png" />
     <Content Include="images\ChangeImage.svg" />
     <Content Include="images\UserParh.svg" />
+    <Resource Include="images\01708167.jpg" />
     <Content Include="resources\AccountPath.svg" />
     <Content Include="resources\AddProductPath.svg" />
     <Content Include="resources\ChangeImage.svg" />

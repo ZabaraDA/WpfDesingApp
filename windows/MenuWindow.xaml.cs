@@ -85,32 +85,32 @@ namespace WpfDesingApp.windows
 
         private void SettingsButton_Click(object sender, RoutedEventArgs e)
         {
-
+            MenuFrame.Navigate(new SettingsPage());
         }
 
         private void AddProductsButton_Click(object sender, RoutedEventArgs e)
         {
-
+            MenuFrame.Navigate(new AddProductPage());
         }
 
         private void ProductsButton_Click(object sender, RoutedEventArgs e)
         {
-
+            MenuFrame.Navigate(new ProductPage());
         }
 
         private void RegistrationUserButton_Click(object sender, RoutedEventArgs e)
         {
-
+            MenuFrame.Navigate(new RegistrationPage());
         }
 
         private void UserButton_Click(object sender, RoutedEventArgs e)
         {
-
+            MenuFrame.Navigate(new UserDataPage());
         }
 
         private void ProfileButton_Click(object sender, RoutedEventArgs e)
         {
-
+            MenuFrame.Navigate(new ProfilePage());
         }
 
         private void ChangeAccountButton_Click(object sender, RoutedEventArgs e)

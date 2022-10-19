@@ -17,8 +17,8 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition ></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Border Grid.RowSpan="3" CornerRadius="5" Grid.Row="0" Background="Black" Grid.ColumnSpan="2"/>
         <Border Grid.RowSpan="3" CornerRadius="5" Grid.Row="0" Margin="1" Grid.ColumnSpan="2">
@@ -99,12 +99,12 @@
                 <Path  Fill="#FF2F2F2F" Stretch="Fill" Name="ExitPath" Margin="12"></Path>
             </Button>
         </StackPanel>
-
-        <Image Source="/images/logo.png" Height="50" Margin="18 2 90 2" HorizontalAlignment="Left" />
+        <Frame NavigationUIVisibility="Hidden" x:Name="MenuFrame" Grid.Row="1" Grid.Column="1" Margin="5"/>
+        <Image Source="/images/logo.png" Height="50" Margin="18 2 90 2" HorizontalAlignment="Left" Grid.ColumnSpan="2" />
         <Label Content="Главное меню - Приветствие" VerticalAlignment="Center" 
-               Foreground="White" 
+               Foreground="White" Grid.ColumnSpan="2"
                HorizontalContentAlignment="Center" Margin="180 0 180 0" 
                FontFamily="Bahnschrift SemiBold Condensed"/>
-        <Frame NavigationUIVisibility="Hidden" x:Name="MenuFrame" Grid.Row="1" Grid.Column="1" Margin="10"/>
+        
     </Grid>
 </Window>
