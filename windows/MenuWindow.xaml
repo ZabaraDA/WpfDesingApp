@@ -101,8 +101,8 @@
         </StackPanel>
         <Frame NavigationUIVisibility="Hidden" x:Name="MenuFrame" Grid.Row="1" Grid.Column="1" Margin="5"/>
         <Image Source="/images/logo.png" Height="50" Margin="18 2 90 2" HorizontalAlignment="Left" Grid.ColumnSpan="2" />
-        <Label Content="Главное меню - Приветствие" VerticalAlignment="Center" 
-               Foreground="White" Grid.ColumnSpan="2"
+        <Label Content="Главное меню - " VerticalAlignment="Center" 
+               Foreground="White" Grid.ColumnSpan="2" Name="StatusBarLabel"
                HorizontalContentAlignment="Center" Margin="180 0 180 0" 
                FontFamily="Bahnschrift SemiBold Condensed"/>
         

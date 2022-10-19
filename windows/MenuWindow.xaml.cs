@@ -22,11 +22,10 @@ namespace WpfDesingApp.windows
     public partial class MenuWindow : Window
     {       
         DoubleAnimation doubleAnimation = new DoubleAnimation();
-        PathDataClass pathDataClass = new PathDataClass();
         bool panelState = true;
         public MenuWindow()
         {   
-            DataContext = pathDataClass;
+            
             InitializeComponent();
             ExitPath.Data = Geometry.Parse(PathDataClass.exitData);
             WindowStatePath.Data = Geometry.Parse(PathDataClass.fullScreenData);
@@ -40,6 +39,8 @@ namespace WpfDesingApp.windows
             UserPath.Data= Geometry.Parse(PathDataClass.userData);
             ControlPanelPath.Data = Geometry.Parse(PathDataClass.reduceData);
             ProfilePath.Data = Geometry.Parse(PathDataClass.profileData);
+
+            StatusBarLabel.Content = "Главное меню - Приветствие";
 
             MenuFrame.Navigate(new WelcomePage());
         }
@@ -85,31 +86,37 @@ namespace WpfDesingApp.windows
 
         private void SettingsButton_Click(object sender, RoutedEventArgs e)
         {
+            StatusBarLabel.Content = "Главное меню - Настройки приложения";
             MenuFrame.Navigate(new SettingsPage());
         }
 
         private void AddProductsButton_Click(object sender, RoutedEventArgs e)
         {
+            StatusBarLabel.Content = "Главное меню - Добавление товара";
             MenuFrame.Navigate(new AddProductPage());
         }
 
         private void ProductsButton_Click(object sender, RoutedEventArgs e)
         {
+            StatusBarLabel.Content = "Главное меню - Просмотр товаров";
             MenuFrame.Navigate(new ProductPage());
         }
 
         private void RegistrationUserButton_Click(object sender, RoutedEventArgs e)
         {
+            StatusBarLabel.Content = "Главное меню - Добавление новых пользователей";
             MenuFrame.Navigate(new RegistrationPage());
         }
 
         private void UserButton_Click(object sender, RoutedEventArgs e)
         {
+            StatusBarLabel.Content = "Главное меню - Просмотр данных пользователей";
             MenuFrame.Navigate(new UserDataPage());
         }
 
         private void ProfileButton_Click(object sender, RoutedEventArgs e)
         {
+            StatusBarLabel.Content = "Главное меню - Просмотр профиля";
             MenuFrame.Navigate(new ProfilePage());
         }
 
@@ -142,8 +149,6 @@ namespace WpfDesingApp.windows
                 ControlPanelPath.Data = Geometry.Parse(PathDataClass.reduceData);
                 panelState = true;
             }
-
-
         }
     }
 }

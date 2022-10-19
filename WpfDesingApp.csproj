@@ -197,6 +197,7 @@
   <ItemGroup>
     <Resource Include="images\CAPTCHA.png" />
     <Content Include="images\ChangeImage.svg" />
+    <Resource Include="images\Profile.png" />
     <Content Include="images\UserParh.svg" />
     <Resource Include="images\01708167.jpg" />
     <Content Include="resources\AccountPath.svg" />

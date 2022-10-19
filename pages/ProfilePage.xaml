@@ -14,18 +14,59 @@
         <StackPanel>
             <Label Content="Ваш профиль" FontSize="36" Margin="0 20 0 0" HorizontalAlignment="Center" FontFamily="Tahoma"></Label>
         </StackPanel>
-            
-        <StackPanel Margin="20">
-                <Border CornerRadius="10" Width="200" Height="600" HorizontalAlignment="Left" VerticalAlignment="Top" BorderBrush="Black" Background="White" Margin="20">
-                    <Border CornerRadius="10" Width="200" Height="200" HorizontalAlignment="Left" BorderBrush="Black" BorderThickness="1" VerticalAlignment="Top">
+            <StackPanel Orientation="Horizontal">
+        <StackPanel Margin="20" Width="260" HorizontalAlignment="Left">
+                
+                
+                <Border CornerRadius="10" Width="260" Height="400" HorizontalAlignment="Left" VerticalAlignment="Top" BorderBrush="Black" Background="White">
+                    <StackPanel>
+                        <Label Content="Пользователь" HorizontalAlignment="Center" Margin="10"></Label>
+                    <Border CornerRadius="10" Width="200" Height="200" HorizontalAlignment="Left" BorderBrush="Black" BorderThickness="1" VerticalAlignment="Top" Margin="30 0 0 10">
+                        
                         <Border.Background>
-                            <ImageBrush ImageSource="/images/CAPTCHA.png" Stretch="UniformToFill"/>
+                            <ImageBrush Stretch="UniformToFill">
+                                <ImageBrush.ImageSource>
+                                    <Binding>
+                                        <Binding.TargetNullValue>
+                                            <ImageSource>/images/Profile.png</ImageSource>
+                                        </Binding.TargetNullValue>
+                                    </Binding>
+                                </ImageBrush.ImageSource>
+                            </ImageBrush>
                         </Border.Background>
 
                     </Border>
+                            <Label Content="Фамилия" HorizontalAlignment="Center" ></Label>
+                            <Label Content="Имя" HorizontalAlignment="Center" Margin="10"></Label>
+                            <Label Content="Почта" HorizontalAlignment="Center"></Label>
+                    </StackPanel>
                 </Border>
                 
         </StackPanel>
+            <StackPanel Margin="20" Width="500" HorizontalAlignment="Left" >
+
+
+                <Border CornerRadius="10" BorderBrush="Black" Background="White" Height="400">
+                        <StackPanel>
+                        <Label Content="Информация о пользователе" HorizontalAlignment="Center" Margin="10"></Label>
+                    <StackPanel>
+                        <StackPanel HorizontalAlignment="Left" Margin="10">
+                            <Label Content="Должность"  ></Label>
+                                    <Label Content="Роль в системе"></Label>
+                            <Label Content="Дата регистрации" ></Label>
+                            <Label Content="Последняя активность"></Label>
+                                    <Label Content="Пол"></Label>
+                                    <Label Content="Возраст"></Label>
+                                    <Label Content="Дата рождения"></Label>
+                                    <Label Content="Семейное положение"></Label>
+                                </StackPanel>
+                        
+                    </StackPanel>
+                        </StackPanel>
+                    </Border>
+
+            </StackPanel>
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Page>
