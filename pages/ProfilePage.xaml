@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:WpfDesingApp.pages"
       mc:Ignorable="d" 
       d:DesignHeight="2000" d:DesignWidth="2200"
-      Title="ProfilePage">
+      Title="ProfilePage" FontSize="20">
 
     <Grid>
         
@@ -14,14 +14,14 @@
         <StackPanel>
             <Label Content="Ваш профиль" FontSize="36" Margin="0 20 0 0" HorizontalAlignment="Center" FontFamily="Tahoma"></Label>
         </StackPanel>
-            <StackPanel Orientation="Horizontal">
-        <StackPanel Margin="20" Width="260" HorizontalAlignment="Left">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+        <StackPanel Margin="20" HorizontalAlignment="Left">
                 
                 
-                <Border CornerRadius="10" Width="260" Height="400" HorizontalAlignment="Left" VerticalAlignment="Top" BorderBrush="Black" Background="White">
+                <Border CornerRadius="10" Width="360" Height="600" HorizontalAlignment="Left" VerticalAlignment="Top" BorderBrush="Black" Background="White">
                     <StackPanel>
                         <Label Content="Пользователь" HorizontalAlignment="Center" Margin="10"></Label>
-                    <Border CornerRadius="10" Width="200" Height="200" HorizontalAlignment="Left" BorderBrush="Black" BorderThickness="1" VerticalAlignment="Top" Margin="30 0 0 10">
+                    <Border CornerRadius="10" Width="300" Height="300" HorizontalAlignment="Left" BorderBrush="Black" BorderThickness="1" VerticalAlignment="Top" Margin="30 0 0 10">
                         
                         <Border.Background>
                             <ImageBrush Stretch="UniformToFill">
@@ -43,10 +43,10 @@
                 </Border>
                 
         </StackPanel>
-            <StackPanel Margin="20" Width="500" HorizontalAlignment="Left" >
+            <StackPanel Margin="20" Width="600" HorizontalAlignment="Left" >
 
 
-                <Border CornerRadius="10" BorderBrush="Black" Background="White" Height="400">
+                <Border CornerRadius="10" BorderBrush="Black" Background="White" Height="600">
                         <StackPanel>
                         <Label Content="Информация о пользователе" HorizontalAlignment="Center" Margin="10"></Label>
                     <StackPanel>
