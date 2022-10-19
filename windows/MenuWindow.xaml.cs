@@ -15,6 +15,7 @@ using WpfDesingApp.windows;
 using System.Windows.Threading;
 using System.Windows.Media.Animation;
 using WpfDesingApp.csclasses;
+using WpfDesingApp.pages;
 
 namespace WpfDesingApp.windows
 {  
@@ -39,6 +40,8 @@ namespace WpfDesingApp.windows
             UserPath.Data= Geometry.Parse(PathDataClass.userData);
             ControlPanelPath.Data = Geometry.Parse(PathDataClass.reduceData);
             ProfilePath.Data = Geometry.Parse(PathDataClass.profileData);
+
+            MenuFrame.Navigate(new WelcomePage());
         }
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -137,7 +140,7 @@ namespace WpfDesingApp.windows
                 doubleAnimation.EasingFunction = new QuadraticEase();
                 ControlPanel.BeginAnimation(WidthProperty, doubleAnimation);
                 ControlPanelPath.Data = Geometry.Parse(PathDataClass.reduceData);
-                panelState =true;
+                panelState = true;
             }
 
 

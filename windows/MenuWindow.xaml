@@ -10,12 +10,16 @@
         AllowsTransparency="True" Background="Transparent" 
         WindowStyle="None" WindowStartupLocation="CenterScreen"
         MouseLeftButtonDown="Window_MouseLeftButtonDown"
-        FontSize="24">
+        FontSize="24" FontFamily="Bahnschrift SemiBold SemiCondensed">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
         <Border Grid.RowSpan="3" CornerRadius="5" Grid.Row="0" Background="Black" Grid.ColumnSpan="2"/>
         <Border Grid.RowSpan="3" CornerRadius="5" Grid.Row="0" Margin="1" Grid.ColumnSpan="2">
             <Border.Background >
@@ -33,73 +37,74 @@
                 </LinearGradientBrush>
             </Border.Background>
         </Border>
-        <Grid Width="300" Grid.Row="1" HorizontalAlignment="Left" x:Name="ControlPanel">
+        <Grid Width="260" Grid.Row="1" HorizontalAlignment="Left" x:Name="ControlPanel" Background="#FFF3F3F3" Margin="2 0 0 2">
             <StackPanel>
-                <Button x:Name="ControlPanelButton" Click="ControlPanelButton_Click" HorizontalContentAlignment="Right">
+                <Button x:Name="ControlPanelButton" Click="ControlPanelButton_Click" Width="80" HorizontalContentAlignment="Right" HorizontalAlignment="Right" Background="AliceBlue" BorderBrush="{x:Null}" Foreground="{x:Null}" >
                     <StackPanel Orientation="Horizontal">
-                        <Path Fill="#FF2F2F2F" Stretch="Fill" Name="ControlPanelPath" Margin="10"></Path>
+                        <Path Fill="#FF2F2F2F" Stretch="Fill" Name="ControlPanelPath" Margin="0 5 23 5" Height="20" Width="30"></Path>
                     </StackPanel>
                 </Button>
-                <Button x:Name="ProfileButton" Click="ProfileButton_Click" HorizontalContentAlignment="Left">
+                <Button x:Name="ProfileButton" Click="ProfileButton_Click" HorizontalContentAlignment="Left" Height="70" Background="AliceBlue" BorderBrush="{x:Null}">
                     <StackPanel Orientation="Horizontal">
-                        <Path Fill="#FF2F2F2F" Stretch="Fill" Name="ProfilePath" Margin="20 10 10 10" Height="45" Width="40"></Path>
+                        <Path Fill="#FF2F2F2F" Stretch="Fill" Name="ProfilePath" Margin="19 10 23 10" Height="45" Width="37"></Path>
                         <Label Content="Профиль" VerticalContentAlignment="Center"/>
                     </StackPanel>
                 </Button>
-                <Button x:Name="RegistrationUserButton" Click="RegistrationUserButton_Click" HorizontalContentAlignment="Left">
+                <Button x:Name="RegistrationUserButton" Click="RegistrationUserButton_Click" HorizontalContentAlignment="Left" Height="70" Background="AliceBlue" BorderBrush="{x:Null}">
                     <StackPanel Orientation="Horizontal">
-                        <Path Fill="#FF2F2F2F" Stretch="Fill" Name="AccountPath" Margin="10" ></Path>
+                        <Path Fill="#FF2F2F2F" Stretch="Fill" Name="AccountPath" Margin="17 20 20 20" Height="23"></Path>
                         <Label Content="Аккаунты" VerticalContentAlignment="Center"/>
                     </StackPanel>
                 </Button>
-                <Button x:Name="UserButton" Click="UserButton_Click" HorizontalContentAlignment="Left">
+                <Button x:Name="UserButton" Click="UserButton_Click" HorizontalContentAlignment="Left" Height="70" Background="AliceBlue" BorderBrush="{x:Null}">
                     <StackPanel Orientation="Horizontal">
-                        <Path Fill="#FF2F2F2F" Stretch="Fill" Name="UserPath" Margin="10" ></Path>
+                        <Path Fill="#FF2F2F2F" Stretch="Fill" Name="UserPath" Margin="9 10 11 10" Width="60"></Path>
                         <Label Content="Пользователи" VerticalContentAlignment="Center"/>
                     </StackPanel>
                 </Button>
-                <Button x:Name="AddProductsButton" Click="AddProductsButton_Click" HorizontalContentAlignment="Left">
+                <Button x:Name="AddProductsButton" Click="AddProductsButton_Click" HorizontalContentAlignment="Left" Height="70" Background="AliceBlue" BorderBrush="{x:Null}">
                     <StackPanel Orientation="Horizontal">
-                        <Path Fill="#FF2F2F2F" Stretch="Fill" Name="AddProductPath" Margin="10" ></Path>
+                        <Path Fill="#FF2F2F2F" Stretch="Fill" Name="AddProductPath" Margin="16 7 15 7" ></Path>
                         <Label Content="Добавить товар" VerticalContentAlignment="Center"/>
                     </StackPanel>
                 </Button>
-                <Button x:Name="ProductsButton" Click="ProductsButton_Click" HorizontalContentAlignment="Left">
+                <Button x:Name="ProductsButton" Click="ProductsButton_Click" HorizontalContentAlignment="Left" Height="70" Background="AliceBlue" BorderBrush="{x:Null}">
                     <StackPanel Orientation="Horizontal">
-                        <Path Fill="#FF2F2F2F" Stretch="Fill" Name="ProductPath" Margin="10" ></Path>
+                        <Path Fill="#FF2F2F2F" Stretch="Fill" Name="ProductPath" Margin="10 5 15 5" Height="55" Width="57"></Path>
                         <Label Content="Товары" VerticalContentAlignment="Center"/>
                     </StackPanel>
                 </Button>
-                <Button x:Name="SettingsButton" Click="SettingsButton_Click" HorizontalContentAlignment="Left">
+                <Button x:Name="SettingsButton" Click="SettingsButton_Click" HorizontalContentAlignment="Left" Height="70" Background="AliceBlue" BorderBrush="{x:Null}">
                     <StackPanel Orientation="Horizontal">
-                        <Path Fill="#FF2F2F2F" Stretch="Fill" Name="SettingsPath" Margin="10" ></Path>
+                        <Path Fill="#FF2F2F2F" Stretch="Fill" Name="SettingsPath" Margin="13 8 22 8" ></Path>
                         <Label Content="Настройки" VerticalContentAlignment="Center"/>
                     </StackPanel>
                 </Button>
             </StackPanel>
-            <Button x:Name="ChangeAccountButton" Click="ChangeAccountButton_Click" VerticalAlignment="Bottom" HorizontalContentAlignment="Left" Grid.Row="1" Margin="0 0 0 10">
+            <Button x:Name="ChangeAccountButton" Click="ChangeAccountButton_Click" VerticalAlignment="Bottom" HorizontalContentAlignment="Left" Grid.Row="1" Margin="0 0 0 10" Background="AliceBlue" BorderBrush="{x:Null}">
                 <StackPanel Orientation="Horizontal">
-                    <Path Fill="#FF2F2F2F" Stretch="Fill" Name="ChangePath" Margin="10 " Height="45" Width="55"></Path>
+                    <Path Fill="#FF2F2F2F" Stretch="Fill" Name="ChangePath" Margin="10 10 15 10" Height="45" Width="55"></Path>
                     <Label Content="Сменить аккаунт" VerticalContentAlignment="Center"/>
                 </StackPanel>
             </Button>
         </Grid>
-        <StackPanel  HorizontalAlignment="Right" Margin="2" Orientation="Horizontal">
-            <Button Background="{x:Null}" Width="58" HorizontalAlignment="Left" x:Name="CollapseButton" Click="CollapseButton_Click" VerticalContentAlignment="Bottom">
+        <StackPanel  HorizontalAlignment="Right" Margin="2" Orientation="Horizontal" Grid.Column="1">
+            <Button Background="{x:Null}" Width="58" HorizontalAlignment="Left" x:Name="CollapseButton" Click="CollapseButton_Click" VerticalContentAlignment="Bottom"  Style="{x:Null}">
                 <Path  Fill="#FF2F2F2F" Stretch="Fill" Name="HidePath" Margin="10" Height="5" VerticalAlignment="Bottom"></Path>
             </Button>
-            <Button Background="{x:Null}" Width="58" HorizontalAlignment="Left" x:Name="FullScreenButton" Click="FullScreenButton_Click">
+            <Button Background="{x:Null}" Width="58" HorizontalAlignment="Left" x:Name="FullScreenButton" Click="FullScreenButton_Click"  Style="{x:Null}">
                 <Path  Fill="#FF2F2F2F" Stretch="Fill" Name="WindowStatePath" Margin="10"></Path>
             </Button>
-            <Button Background="{x:Null}" Width="58" HorizontalAlignment="Left" x:Name="ExitButton" Click="ExitButton_Click">
+            <Button Background="{x:Null}" Width="58" HorizontalAlignment="Left" x:Name="ExitButton" Click="ExitButton_Click" Style="{x:Null}">
                 <Path  Fill="#FF2F2F2F" Stretch="Fill" Name="ExitPath" Margin="12"></Path>
             </Button>
         </StackPanel>
 
-        <Image Source="/images/logo.png" Height="50" Margin="10 2 90 2" HorizontalAlignment="Left" />
+        <Image Source="/images/logo.png" Height="50" Margin="18 2 90 2" HorizontalAlignment="Left" />
         <Label Content="Главное меню - Приветствие" VerticalAlignment="Center" 
                Foreground="White" 
                HorizontalContentAlignment="Center" Margin="180 0 180 0" 
                FontFamily="Bahnschrift SemiBold Condensed"/>
+        <Frame NavigationUIVisibility="Hidden" x:Name="MenuFrame" Grid.Row="1" Grid.Column="1" Margin="10"/>
     </Grid>
 </Window>
