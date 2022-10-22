@@ -39,7 +39,7 @@ namespace WpfDesingApp.windows
             UserPath.Data= Geometry.Parse(PathDataClass.userData);
             ControlPanelPath.Data = Geometry.Parse(PathDataClass.reduceData);
             ProfilePath.Data = Geometry.Parse(PathDataClass.profileData);
-
+            
             StatusBarLabel.Content = "Главное меню - Приветствие";
 
             MenuFrame.Navigate(new WelcomePage());
@@ -99,19 +99,19 @@ namespace WpfDesingApp.windows
         private void ProductsButton_Click(object sender, RoutedEventArgs e)
         {
             StatusBarLabel.Content = "Главное меню - Просмотр товаров";
-            MenuFrame.Navigate(new ProductPage());
+            MenuFrame.Navigate(new DataProductPage());
         }
 
         private void RegistrationUserButton_Click(object sender, RoutedEventArgs e)
         {
             StatusBarLabel.Content = "Главное меню - Добавление новых пользователей";
-            MenuFrame.Navigate(new RegistrationPage());
+            MenuFrame.Navigate(new AddUserPage());
         }
 
         private void UserButton_Click(object sender, RoutedEventArgs e)
         {
             StatusBarLabel.Content = "Главное меню - Просмотр данных пользователей";
-            MenuFrame.Navigate(new UserDataPage());
+            MenuFrame.Navigate(new DataUserPage());
         }
 
         private void ProfileButton_Click(object sender, RoutedEventArgs e)

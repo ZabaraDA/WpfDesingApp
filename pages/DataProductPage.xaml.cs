@@ -12,17 +12,19 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using WpfDesingApp.databases;
 namespace WpfDesingApp.pages
 {
     /// <summary>
-    /// Логика взаимодействия для RegistrationPage.xaml
+    /// Логика взаимодействия для DataProductPage.xaml
     /// </summary>
-    public partial class RegistrationPage : Page
+    public partial class DataProductPage : Page
     {
-        public RegistrationPage()
+        TradeEntities tradeEntities = new TradeEntities();
+        public DataProductPage()
         {
             InitializeComponent();
+            ProductListView.ItemsSource = tradeEntities.Product.ToList();
         }
     }
 }

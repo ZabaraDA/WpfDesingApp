@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace WpfDesingApp.pages
 {
     /// <summary>
-    /// Логика взаимодействия для UserDataPage.xaml
+    /// Логика взаимодействия для AddUserPage.xaml
     /// </summary>
-    public partial class UserDataPage : Page
+    public partial class AddUserPage : Page
     {
-        public UserDataPage()
+        public AddUserPage()
         {
             InitializeComponent();
         }

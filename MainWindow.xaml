@@ -13,7 +13,7 @@
         ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
             <RowDefinition Height="460"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
