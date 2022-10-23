@@ -16,6 +16,8 @@ using System.Windows.Threading;
 using System.Windows.Media.Animation;
 using WpfDesingApp.csclasses;
 using WpfDesingApp.pages;
+//using static WpfDesingApp.windows.MenuWindow;
+//using WpfDesingApp.customcontrols;
 
 namespace WpfDesingApp.windows
 {  
@@ -39,11 +41,30 @@ namespace WpfDesingApp.windows
             UserPath.Data= Geometry.Parse(PathDataClass.userData);
             ControlPanelPath.Data = Geometry.Parse(PathDataClass.reduceData);
             ProfilePath.Data = Geometry.Parse(PathDataClass.profileData);
-            
+            //ProfileButton.Content = PathDataClass.profileData;
             StatusBarLabel.Content = "Главное меню - Приветствие";
-
+            
             MenuFrame.Navigate(new WelcomePage());
+            //ExButton er = new ExButton();
+            //er.Data = Geometry.Parse(PathDataClass.profileData);
+            
+
         }
+        //public class ExButton : Button
+        //{
+        //    public static readonly DependencyProperty DataProperty = DependencyProperty.Register(
+        //    "Data", typeof(Geometry), typeof(ExButton), new PropertyMetadata(default(Geometry)));
+
+        //    public Geometry Data
+        //    {
+        //        get { return (Geometry)GetValue(DataProperty); }
+        //        set { SetValue(DataProperty, value); }
+        //    }
+        //    public ExButton()
+        //    {
+                
+        //    }
+        //}
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {

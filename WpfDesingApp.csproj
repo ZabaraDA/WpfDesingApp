@@ -279,7 +279,9 @@
     <Content Include="resources\SettingsPath.svg" />
     <Content Include="resources\UserData.svg" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="customcontrols\" />
+  </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
