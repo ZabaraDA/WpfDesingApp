@@ -48,7 +48,7 @@ namespace WpfDesingApp.windows
             //ExButton er = new ExButton();
             //er.Data = Geometry.Parse(PathDataClass.profileData);
             
-
+            
         }
         //public class ExButton : Button
         //{
@@ -171,5 +171,7 @@ namespace WpfDesingApp.windows
                 panelState = true;
             }
         }
+
+      
     }
 }

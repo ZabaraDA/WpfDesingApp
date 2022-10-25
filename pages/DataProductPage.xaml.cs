@@ -23,8 +23,13 @@ namespace WpfDesingApp.pages
         TradeEntities tradeEntities = new TradeEntities();
         public DataProductPage()
         {
+           
+
             InitializeComponent();
+            DataContext = tradeEntities;
             ProductListView.ItemsSource = tradeEntities.Product.ToList();
+            
+            
         }
     }
 }

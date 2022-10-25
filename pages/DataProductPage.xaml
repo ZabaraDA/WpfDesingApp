@@ -26,7 +26,7 @@
 
             <DataTemplate>
                 <Grid>
-                    <Border CornerRadius="5">
+                    <Border CornerRadius="5" Width="600">
                         <Border.Background >
                             <LinearGradientBrush>
                                 <GradientStop Color="#FFA9A6A6" Offset="0"/>
@@ -47,7 +47,7 @@
                                 </Border>
                                 <StackPanel Margin="10">
                                     <Label Content="{Binding Path=ProductName}" FontSize="24" FontWeight="Bold"></Label>
-                                    <Label Content="{Binding Path=ProductDescription}" FontSize="14" ></Label>
+                                    <TextBlock Text="{Binding Path=ProductDescription}" Width="300" Foreground="Black" TextWrapping="WrapWithOverflow"></TextBlock>
                                     <Label Content="{Binding Path=Manufacturer.ManufacturerName}" ContentStringFormat="{}Производитель: {0}"></Label>
                                     <Label Content="{Binding Path=ProductCost}" ContentStringFormat="{}Стоимость: {0} РУБ"></Label>
                                 </StackPanel>

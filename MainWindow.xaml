@@ -50,9 +50,9 @@
         </StackPanel>
         <StackPanel Grid.Row="1" VerticalAlignment="Center" Width="300" >
             <Label Content="Введите логин" />
-            <TextBox  Height="40" Margin="0 0 0 30" TextAlignment="Center" x:Name="LoginTextBox" VerticalContentAlignment="Center" FontWeight="Bold"></TextBox><!--FontFamily="Segoe UI Light"--> 
+            <TextBox TextAlignment="Center" x:Name="LoginTextBox"></TextBox><!--FontFamily="Segoe UI Light"--> 
             <Label Content="Введите пароль" />
-            <PasswordBox  Height="40"  x:Name="PasswordBox" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" ></PasswordBox>
+            <PasswordBox x:Name="PasswordBox" HorizontalContentAlignment="Center"></PasswordBox>
             <Button Content="Забыли пароль?"  Height="35" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF636363" 
                     HorizontalAlignment="Right" FontFamily="Segoe UI Light" FontSize="20" Cursor="Hand" Focusable="False"></Button>
         </StackPanel>

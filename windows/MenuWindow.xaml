@@ -1,10 +1,12 @@
-﻿<Window
+﻿<Window 
+        x:Class="WpfDesingApp.windows.MenuWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfDesingApp.windows"
-        xmlns:csclasses="clr-namespace:WpfDesingApp.csclasses" x:Class="WpfDesingApp.windows.MenuWindow"
+        xmlns:csclasses="clr-namespace:WpfDesingApp.csclasses" 
+        xmlns:wpfdesingapp="clr-namespace:WpfDesingApp" 
         mc:Ignorable="d"
         Title="MenuWindow" Height="900" Width="1440" WindowStartupLocation="CenterScreen"
         MouseLeftButtonDown="Window_MouseLeftButtonDown" WindowStyle="None"
@@ -74,7 +76,7 @@
                         <Label Content="Пользователи"/>
                     </StackPanel>
                 </Button>
-                    <Button Style="{DynamicResource ButtonStyle1}" x:Name="AddProductsButton" Click="AddProductsButton_Click"  
+                    <Button  x:Name="AddProductsButton" Click="AddProductsButton_Click"  
                             >
                     <StackPanel Orientation="Horizontal">
                         <Path Name="AddProductPath"></Path>
@@ -88,6 +90,7 @@
                         <Label Content="Товары"/>
                     </StackPanel>
                 </Button>
+                        <wpfdesingapp:NavigationButton Content="Настройки" Data="{StaticResource ProfilePathData}"></wpfdesingapp:NavigationButton>
                     <Button x:Name="SettingsButton" Click="SettingsButton_Click"
                             Style="{StaticResource NavigationStyle}">
                     <StackPanel Orientation="Horizontal">
