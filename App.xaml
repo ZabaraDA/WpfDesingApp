@@ -24,7 +24,7 @@
         <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
         <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
         
-        <Style TargetType="Path">
+        <Style TargetType="Path" x:Key="NavigationPath">
             <Setter Property="Width" Value="30" />
             <Setter Property="Height" Value="30" />
             <Setter Property="VerticalAlignment" Value="Center" />
@@ -101,7 +101,7 @@
         <SolidColorBrush x:Key="TextBox.Static.Border1" Color="#FF828282"/>
         <SolidColorBrush x:Key="TextBox.MouseOver.Border1" Color="Black"/>
         <SolidColorBrush x:Key="TextBox.Focus.Border1" Color="#FF0CA500"/>
-        <Style TargetType="{x:Type TextBox}">
+        <Style TargetType="{x:Type TextBox}" x:Key="BaseTextBoxStyle">
             <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
             <Setter Property="BorderBrush" Value="{StaticResource TextBox.Static.Border1}"/>
             <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
@@ -155,10 +155,10 @@
                     Value="{StaticResource ButtonFocusVisual}"/>
             <Setter Property="Template">
                 <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type Button}" x:Name="ee">
+                    <ControlTemplate TargetType="{x:Type Button}">
                         <Border CornerRadius="5" Background="{TemplateBinding Background}" x:Name="ColorBackground">
                             <Grid>
-                                <Path></Path>
+                             
                                 <ContentPresenter x:Name="MyContentPresenter" Content="{TemplateBinding Content}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                             </Grid>
                         </Border>
@@ -187,7 +187,7 @@
                     <ControlTemplate TargetType="{x:Type local:NavigationButton}" x:Name="ee">
                         <Border CornerRadius="5" Background="{TemplateBinding Background}" x:Name="ColorBackground">
                             <StackPanel Orientation="Horizontal">
-                                <Path Data="{TemplateBinding Data}" x:Name="path"></Path>
+                                <Path Data="{TemplateBinding Data}" x:Name="path" Style="{StaticResource NavigationPath}"></Path>
                                 <ContentPresenter x:Name="MyContentPresenter" Content="{TemplateBinding Content}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                             </StackPanel>
                         </Border>

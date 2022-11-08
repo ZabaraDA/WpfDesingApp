@@ -13,26 +13,23 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition Width="Auto"></ColumnDefinition>
         </Grid.ColumnDefinitions>
+        
         <ListView Name="ProductListView" Background="Transparent" BorderBrush="{x:Null}" Foreground="{x:Null}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
-                <WrapPanel ></WrapPanel>
+                    <WrapPanel ></WrapPanel>
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
-            
             <ListView.ItemTemplate>
-                
-                
-
-            <DataTemplate>
-                <Grid>
-                    <Border CornerRadius="5" Width="600">
-                        <Border.Background >
-                            <LinearGradientBrush>
-                                <GradientStop Color="#FFA9A6A6" Offset="0"/>
-                                <GradientStop Color="#FFB9B9B9" Offset="1"/>
-                            </LinearGradientBrush>
-                        </Border.Background>
+                <DataTemplate>
+                    <Grid>
+                        <Border CornerRadius="5" Width="600">
+                            <Border.Background >
+                                <LinearGradientBrush>
+                                    <GradientStop Color="#FFA9A6A6" Offset="0"/>
+                                    <GradientStop Color="#FFB9B9B9" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
                             <StackPanel Orientation="Horizontal">
                                 <Border  CornerRadius="5" HorizontalAlignment="Left" Width="190" Margin="15" Background="White">
                                     <Image  Stretch="Uniform" Height="200">
@@ -53,13 +50,10 @@
                                 </StackPanel>
                             </StackPanel>
                         </Border>
-                    
-                </Grid>
-
-
-
-            </DataTemplate>
-                </ListView.ItemTemplate>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
+        
     </Grid>
 </Page>

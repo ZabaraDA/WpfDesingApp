@@ -9,6 +9,113 @@
       Title="DataUserPage">
 
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+            
+        <ListView Name="UserListView" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel ></WrapPanel>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Border CornerRadius="5" Width="600">
+                            <Border.Background >
+                                <LinearGradientBrush>
+                                    <GradientStop Color="#FFA9A6A6" Offset="0"/>
+                                    <GradientStop Color="#FFB9B9B9" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
+                            <StackPanel Orientation="Horizontal">
+                                <Border  CornerRadius="10" HorizontalAlignment="Left" Height="190" Width="190" Margin="15" >
+                                    <Border.Background>
+                                        <ImageBrush Stretch="UniformToFill">
+                                            <ImageBrush.ImageSource>
+                                                <Binding Path="Фото">
+                                                    <Binding.TargetNullValue>
+                                                        <ImageSource>/Images/Заглушка.png</ImageSource>
+                                                    </Binding.TargetNullValue>
+                                                </Binding>
+                                            </ImageBrush.ImageSource>
+                                        </ImageBrush>
+                                    </Border.Background>
+                                </Border>
+                                <StackPanel Margin="10" TextBlock.FontSize="16" TextBlock.FontFamily="Comic Sans MS" TextBlock.Foreground="Black" >
+                                    <TextBlock Text="{Binding Path=Фамилия}" FontSize="20"></TextBlock>
+                                    <TextBlock Text="{Binding Path=Имя}" ></TextBlock>
+                                    <TextBlock Text="{Binding Path=Отчество}"></TextBlock>
+                                    <TextBlock Text="{Binding Path=Сотрудник.Телефон, StringFormat={}Телефон: {0}}"></TextBlock>
+                                    <TextBlock Text="{Binding Path=Сотрудник.Почта, StringFormat={}Почта: {0}}"></TextBlock>
+                                    <TextBlock Text="{Binding Path=Логин}"></TextBlock>
+                                    <TextBlock Text="{Binding Path=Доступ}"></TextBlock>
+                                    <TextBlock Text="{Binding Path=Логин}"></TextBlock>
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <StackPanel Grid.Column="1" Name="ProductEditStackPanel">
+            <StackPanel>
+                <TextBlock Text="Фильтры" HorizontalAlignment="Center" ></TextBlock>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Выбрано"></TextBlock>
+                    <TextBlock Name="FilterNumberOfProductsLabel"></TextBlock>
+                    <TextBlock Text="из"></TextBlock>
+                    <TextBlock Name="NumberOfProductsLabel"></TextBlock>
+                    <TextBlock Text="Товаров"></TextBlock>
+                </StackPanel>
+                <TextBlock Text="Поиск по названию"></TextBlock>
+                <TextBox Name="NameSearchTextBox" TextChanged="SearchTextBox_TextChanged"></TextBox>
+                <Label Content="Поиск по производителю"></Label>
+                <ComboBox Name="ManufacturerSearchComboBox" SelectionChanged="SearchComboBox_SelectionChanged" ></ComboBox>
+                <Label Content="Поиск по категории"></Label>
+                <ComboBox Name="CategorySearchComboBox" SelectionChanged="SearchComboBox_SelectionChanged" ></ComboBox>
+                <Label Content="Фото"></Label>
+                <ComboBox Name="PhotoSearchComboBox" SelectionChanged="SearchComboBox_SelectionChanged">
+                    <ComboBoxItem Content="Все товары"></ComboBoxItem>
+                    <ComboBoxItem Content="Товары с фото"></ComboBoxItem>
+                    <ComboBoxItem Content="Товары без фото"></ComboBoxItem>
+                </ComboBox>
+                <Label Content="Наличие на складе"></Label>
+                <ComboBox VerticalAlignment="Center" Name="InStockComboBox" SelectionChanged="SearchComboBox_SelectionChanged">
+                    <ComboBoxItem Content="Все товары"></ComboBoxItem>
+                    <ComboBoxItem Content="Есть в наличии"></ComboBoxItem>
+                    <ComboBoxItem Content="Нет в наличии"></ComboBoxItem>
+                </ComboBox>
+
+                <Label Content="Сортировать по цене"></Label>
+                <ComboBox Name="CostSearchComboBox" SelectionChanged="SearchComboBox_SelectionChanged">
+                    <ComboBoxItem Content="Произвольно"></ComboBoxItem>
+                    <ComboBoxItem Content="По возрастанию"></ComboBoxItem>
+                    <ComboBoxItem Content="По убыванию"></ComboBoxItem>
+                </ComboBox>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="От"></Label>
+                    <TextBox Width="115" Name="MinimumCostTextBox" TextChanged="SearchTextBox_TextChanged"></TextBox>
+                    <Label Content="До"></Label>
+                    <TextBox Width="115" Name="MaximumCostTextBox" TextChanged="SearchTextBox_TextChanged"></TextBox>
+                </StackPanel>
+
+
+                <Button Width="200" Height="40" Content="Сбросить фильтры" x:Name="ClearFilterButton" Click="ClearFilterButton_Click"></Button>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                <Label Content="Редактировать"></Label>
+                <Button Width="100" Height="40" Content="Добавить" x:Name="AddProductButton" Click="AddProductButton_Click"></Button>
+                <Button Width="100" Height="40" Content="Удалить"  x:Name="DeleteProductButton" Click="DeleteProductButton_Click" Margin="10"></Button>
+                <Button Width="100" Height="40" Content="Изменить" x:Name="ChangeParametersButton" Click="ChangeParametersButton_Click"></Button>
+
+
+            </StackPanel>
+        </StackPanel>
+
     </Grid>
 </Page>

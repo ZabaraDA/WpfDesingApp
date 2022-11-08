@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище TestDatabasesModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Аккаунт">
+          <Key>
+            <PropertyRef Name="Код" />
+          </Key>
+          <Property Name="Код" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Логин" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="Пароль" Type="char" MaxLength="30" Nullable="false" />
+          <Property Name="Доступ" Type="int" Nullable="false" />
+          <Property Name="КодСотрудника" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Сотрудник">
+          <Key>
+            <PropertyRef Name="Код" />
+          </Key>
+          <Property Name="Код" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Имя" Type="varchar" MaxLength="50" />
+          <Property Name="Фамилия" Type="varchar" MaxLength="100" />
+          <Property Name="Отчество" Type="varchar" MaxLength="50" />
+          <Property Name="Пол" Type="bit" />
+          <Property Name="ДатаРождения" Type="date" />
+          <Property Name="АдресПроживание" Type="nvarchar" MaxLength="150" />
+          <Property Name="Телефон" Type="char" MaxLength="15" />
+          <Property Name="ИНН" Type="char" MaxLength="30" />
+          <Property Name="ОМС" Type="char" MaxLength="30" />
+          <Property Name="СНИЛС" Type="char" MaxLength="30" />
+          <Property Name="СемейноеПоложение" Type="bit" />
+          <Property Name="ДатаТрудоустройства" Type="date" />
+        </EntityType>
+        <Association Name="FK_Аккаунт_Сотрудник">
+          <End Role="Сотрудник" Type="Self.Сотрудник" Multiplicity="1" />
+          <End Role="Аккаунт" Type="Self.Аккаунт" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Сотрудник">
+              <PropertyRef Name="Код" />
+            </Principal>
+            <Dependent Role="Аккаунт">
+              <PropertyRef Name="КодСотрудника" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище TestDatabasesModelContainer">
+          <EntitySet Name="Аккаунт" EntityType="Self.Аккаунт" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Сотрудник" EntityType="Self.Сотрудник" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Аккаунт_Сотрудник" Association="Self.FK_Аккаунт_Сотрудник">
+            <End Role="Сотрудник" EntitySet="Сотрудник" />
+            <End Role="Аккаунт" EntitySet="Аккаунт" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TestDatabasesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Аккаунт">
+          <Key>
+            <PropertyRef Name="Код" />
+          </Key>
+          <Property Name="Код" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Логин" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Пароль" Type="String" MaxLength="30" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Доступ" Type="Int32" Nullable="false" />
+          <Property Name="КодСотрудника" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Сотрудник" Relationship="Self.FK_Аккаунт_Сотрудник" FromRole="Аккаунт" ToRole="Сотрудник" />
+        </EntityType>
+        <EntityType Name="Сотрудник">
+          <Key>
+            <PropertyRef Name="Код" />
+          </Key>
+          <Property Name="Код" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Имя" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Фамилия" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Отчество" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Пол" Type="Boolean" />
+          <Property Name="ДатаРождения" Type="DateTime" Precision="0" />
+          <Property Name="АдресПроживание" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Телефон" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
+          <Property Name="ИНН" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+          <Property Name="ОМС" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+          <Property Name="СНИЛС" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+          <Property Name="СемейноеПоложение" Type="Boolean" />
+          <Property Name="ДатаТрудоустройства" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Аккаунт" Relationship="Self.FK_Аккаунт_Сотрудник" FromRole="Сотрудник" ToRole="Аккаунт" />
+        </EntityType>
+        <Association Name="FK_Аккаунт_Сотрудник">
+          <End Role="Сотрудник" Type="Self.Сотрудник" Multiplicity="1" />
+          <End Role="Аккаунт" Type="Self.Аккаунт" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Сотрудник">
+              <PropertyRef Name="Код" />
+            </Principal>
+            <Dependent Role="Аккаунт">
+              <PropertyRef Name="КодСотрудника" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TestDatabasesEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Аккаунт" EntityType="Self.Аккаунт" />
+          <EntitySet Name="Сотрудник" EntityType="Self.Сотрудник" />
+          <AssociationSet Name="FK_Аккаунт_Сотрудник" Association="Self.FK_Аккаунт_Сотрудник">
+            <End Role="Сотрудник" EntitySet="Сотрудник" />
+            <End Role="Аккаунт" EntitySet="Аккаунт" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище TestDatabasesModelContainer" CdmEntityContainer="TestDatabasesEntities">
+          <EntitySetMapping Name="Аккаунт">
+            <EntityTypeMapping TypeName="TestDatabasesModel.Аккаунт">
+              <MappingFragment StoreEntitySet="Аккаунт">
+                <ScalarProperty Name="Код" ColumnName="Код" />
+                <ScalarProperty Name="Логин" ColumnName="Логин" />
+                <ScalarProperty Name="Пароль" ColumnName="Пароль" />
+                <ScalarProperty Name="Доступ" ColumnName="Доступ" />
+                <ScalarProperty Name="КодСотрудника" ColumnName="КодСотрудника" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Сотрудник">
+            <EntityTypeMapping TypeName="TestDatabasesModel.Сотрудник">
+              <MappingFragment StoreEntitySet="Сотрудник">
+                <ScalarProperty Name="Код" ColumnName="Код" />
+                <ScalarProperty Name="Имя" ColumnName="Имя" />
+                <ScalarProperty Name="Фамилия" ColumnName="Фамилия" />
+                <ScalarProperty Name="Отчество" ColumnName="Отчество" />
+                <ScalarProperty Name="Пол" ColumnName="Пол" />
+                <ScalarProperty Name="ДатаРождения" ColumnName="ДатаРождения" />
+                <ScalarProperty Name="АдресПроживание" ColumnName="АдресПроживание" />
+                <ScalarProperty Name="Телефон" ColumnName="Телефон" />
+                <ScalarProperty Name="ИНН" ColumnName="ИНН" />
+                <ScalarProperty Name="ОМС" ColumnName="ОМС" />
+                <ScalarProperty Name="СНИЛС" ColumnName="СНИЛС" />
+                <ScalarProperty Name="СемейноеПоложение" ColumnName="СемейноеПоложение" />
+                <ScalarProperty Name="ДатаТрудоустройства" ColumnName="ДатаТрудоустройства" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfDesingApp.databases;
 
 namespace WpfDesingApp.pages
 {
@@ -20,9 +21,15 @@ namespace WpfDesingApp.pages
     /// </summary>
     public partial class AddProductPage : Page
     {
+        TestDatabasesEntities databases= new TestDatabasesEntities();
+        TradeEntities tradeEntities = new TradeEntities();
+
         public AddProductPage()
         {
+            //DataContext = tradeEntities.Product;
             InitializeComponent();
+            //ProductListView.ItemsSource = tradeEntities.Product.ToList();
+            //ww.ItemsSource = tradeEntities.Product.ToList();
         }
     }
 }

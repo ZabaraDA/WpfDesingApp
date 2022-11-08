@@ -58,21 +58,21 @@
                         <Button x:Name="ProfileButton" Click="ProfileButton_Click" 
                              ToolTip="Просмотр профиля" Style="{StaticResource NavigationStyle}">
                             <StackPanel Orientation="Horizontal">
-                                <Path Name="ProfilePath"></Path>
+                                <Path Name="ProfilePath" Style="{StaticResource NavigationPath}"></Path>
                                 <Label Content="Профиль"/>
                             </StackPanel>
                         </Button>
                 <Button x:Name="RegistrationUserButton" Click="RegistrationUserButton_Click" 
                          Style="{StaticResource NavigationStyle}">
                     <StackPanel Orientation="Horizontal">
-                        <Path Name="AccountPath"></Path>
+                                <Path Name="AccountPath" Style="{StaticResource NavigationPath}"></Path>
                         <Label Content="Аккаунты"/>
                     </StackPanel>
                 </Button>
                     <Button x:Name="UserButton" Click="UserButton_Click" 
-                            Style="{StaticResource NavigationStyle}">
+                            Style="{StaticResource NavigationStyle}" >
                         <StackPanel Orientation="Horizontal">
-                        <Path Name="UserPath"></Path>
+                                <Path Name="UserPath" Style="{StaticResource NavigationPath}"></Path>
                         <Label Content="Пользователи"/>
                     </StackPanel>
                 </Button>
@@ -86,7 +86,7 @@
                     <Button x:Name="ProductsButton" Click="ProductsButton_Click" 
                             Style="{StaticResource NavigationStyle}">
                     <StackPanel Orientation="Horizontal">
-                        <Path Name="ProductPath"></Path>
+                                <Path Name="ProductPath" Style="{StaticResource NavigationPath}"></Path>
                         <Label Content="Товары"/>
                     </StackPanel>
                 </Button>
@@ -94,7 +94,7 @@
                     <Button x:Name="SettingsButton" Click="SettingsButton_Click"
                             Style="{StaticResource NavigationStyle}">
                     <StackPanel Orientation="Horizontal">
-                        <Path Name="SettingsPath"></Path>
+                                <Path Name="SettingsPath" Style="{StaticResource NavigationPath}"></Path>
                         <Label Content="Настройки" VerticalContentAlignment="Center"/>
                     </StackPanel>
                 </Button>
@@ -106,7 +106,7 @@
             <Button x:Name="ChangeAccountButton" Click="ChangeAccountButton_Click" VerticalAlignment="Bottom" HorizontalContentAlignment="Left" 
                     Style="{StaticResource NavigationStyle}">
                 <StackPanel Orientation="Horizontal">
-                    <Path Name="ChangePath"></Path>
+                    <Path Name="ChangePath" Style="{StaticResource NavigationPath}"></Path>
                     <Label Content="Сменить аккаунт" VerticalContentAlignment="Center"/>
                 </StackPanel>
             </Button>

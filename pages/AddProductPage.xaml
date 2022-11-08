@@ -6,9 +6,15 @@
       xmlns:local="clr-namespace:WpfDesingApp.pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="AddProductPage">
-
+      Title="AddProductPage"
+    xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2">
     <Grid>
-        
+        <ComboBox Width="200" Height="60">
+            <ComboBoxItem Content="32ed"></ComboBoxItem>
+            <ComboBoxItem Content="32ed"></ComboBoxItem>
+            <ComboBoxItem Content="32ed"></ComboBoxItem>
+            <ComboBoxItem Content="32ed"></ComboBoxItem>
+
+        </ComboBox>
     </Grid>
 </Page>

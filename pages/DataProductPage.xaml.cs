@@ -28,8 +28,8 @@ namespace WpfDesingApp.pages
             InitializeComponent();
             DataContext = tradeEntities;
             ProductListView.ItemsSource = tradeEntities.Product.ToList();
-            
-            
+         
+
         }
     }
 }
