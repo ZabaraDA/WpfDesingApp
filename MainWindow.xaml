@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfDesingApp"
+        xmlns:local="clr-namespace:WpfDesingApp" xmlns:my="clr-namespace:WpfCustomControlLibrary;assembly=WpfCustomControlLibrary"
         mc:Ignorable="d"
         Title="MainWindow" Height="630" Width="450" 
         AllowsTransparency="True" Background="Transparent" 
@@ -11,6 +11,7 @@
         MouseLeftButtonDown="Window_MouseLeftButtonDown"
         FontSize="24" FontFamily="Bahnschrift SemiBold Condensed" 
         ResizeMode="NoResize">
+ 
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"></RowDefinition>
@@ -34,11 +35,7 @@
                 </LinearGradientBrush>
             </Border.Background>
         </Border>
-        <StackPanel Orientation="Horizontal" Margin="1">
-            <Image Source="images/Logo.png" Height="50" Margin="10 0 90 0"></Image>
-                <Label Content="Окно авторизации" VerticalAlignment="Center" Foreground="White"></Label>
-                
-            </StackPanel>
+        <TextBlock Text="Окно авторизации" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"></TextBlock>
         <StackPanel  HorizontalAlignment="Right" Margin="2" Orientation="Horizontal">
             <Button Background="{x:Null}" Width="58" HorizontalAlignment="Left" x:Name="CollapseButton" Click="CollapseButton_Click">
                 <Image Source="images/RemoveImage.png"></Image>
@@ -48,17 +45,20 @@
                 </Button>
             
         </StackPanel>
-        <StackPanel Grid.Row="1" VerticalAlignment="Center" Width="300" >
-            <Label Content="Введите логин" />
-            <TextBox TextAlignment="Center" x:Name="LoginTextBox"></TextBox><!--FontFamily="Segoe UI Light"--> 
-            <Label Content="Введите пароль" />
+        
+        <StackPanel Grid.Row="1"  Width="300" >
+            <Image Source="images/Logo.png" Height="150"  Grid.Row="1" Margin="0 40 0 40" VerticalAlignment="Top"></Image>
+            <TextBlock Text="Введите логин" />
+            <my:TextBoxWithRemoved x:Name="LoginTextBox"></my:TextBoxWithRemoved>
+            <TextBlock Text="Введите пароль" />
             <PasswordBox x:Name="PasswordBox" HorizontalContentAlignment="Center"></PasswordBox>
-            <Button Content="Забыли пароль?"  Height="35" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF636363" 
+            <Button Content="Забыли пароль?"  Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF636363" 
                     HorizontalAlignment="Right" FontFamily="Segoe UI Light" FontSize="20" Cursor="Hand" Focusable="False"></Button>
         </StackPanel>
         
       
-        <Button Width="200" Height="50" Content="Войти" x:Name="OpenButton" Click="OpenButton_Click" Grid.Row="2" VerticalAlignment="Top"></Button>
+        <my:NavigationButton Width="150" Content="Войти" Grid.Row="2" VerticalAlignment="Top"
+                             x:Name="OpenButton" Click="OpenButton_Click"></my:NavigationButton>
         
 
        

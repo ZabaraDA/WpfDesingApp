@@ -6,15 +6,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfDesingApp.windows"
         xmlns:csclasses="clr-namespace:WpfDesingApp.csclasses" 
-        xmlns:wpfdesingapp="clr-namespace:WpfDesingApp" 
+        xmlns:my="clr-namespace:WpfCustomControlLibrary;assembly=WpfCustomControlLibrary"
         mc:Ignorable="d"
         Title="MenuWindow" Height="900" Width="1440" WindowStartupLocation="CenterScreen"
         MouseLeftButtonDown="Window_MouseLeftButtonDown" WindowStyle="None"
         FontSize="20"  FontFamily="Bahnschrift Light SemiCondensed"
         BorderBrush="Transparent" BorderThickness="0">
-  
+
     <!--AllowDrop="True"-->
-    
+
     <WindowChrome.WindowChrome>
         <WindowChrome NonClientFrameEdges="Bottom" CaptionHeight="0" ResizeBorderThickness="5"/>
     </WindowChrome.WindowChrome>
@@ -35,81 +35,42 @@
                 </LinearGradientBrush>
             </Border.Background>
         </Border>
-        <Grid Width="260" Grid.Row="1" HorizontalAlignment="Left" x:Name="ControlPanel"  Background="#FF9A9A9A" >
+        <Grid Width="210" Grid.Row="1" HorizontalAlignment="Left" x:Name="ControlPanel"  Background="#FF9A9A9A" >
             <StackPanel>
-            <Button x:Name="ControlPanelButton" Click="ControlPanelButton_Click" 
-                        Width="60" HorizontalAlignment="Right" 
-                        Style="{StaticResource NavigationStyle}">
-                <Path Fill="#FFECECEC" Stretch="Fill" Name="ControlPanelPath" Margin="15 10 0 10" Height="20" Width="30"></Path>
-            </Button>
-            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" >
-                <Border Width="60" Height="60" Margin="10 0 10 0" Background="White" CornerRadius="5"></Border>
+                <my:NavigationButton Data="{DynamicResource ReducePathData}"
+                    x:Name="ControlPanelButton" Click="ControlPanelButton_Click" Width="50" HorizontalAlignment="Right"/>
+                <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" VerticalAlignment="Top">
+                <Border Width="50" Height="50" Margin="10 0 10 0" Background="White" CornerRadius="5"></Border>
                 <StackPanel>
-                    <Label Content="Имя" Name="NameLabel"></Label>
-                    <Label Content="Фамилия" Name="SurnameLabel"></Label>
+                        <TextBlock Text="Имя" Name="NameTextBlock"></TextBlock>
+                        <TextBlock Text="Фамилия" Name="SurnameTextBlock"></TextBlock>
                 </StackPanel>
             </StackPanel>
-            <StackPanel>
-
-
-                    
-                <StackPanel VerticalAlignment="Center">
-
-                        <Button x:Name="ProfileButton" Click="ProfileButton_Click" 
-                             ToolTip="Просмотр профиля" Style="{StaticResource NavigationStyle}">
-                            <StackPanel Orientation="Horizontal">
-                                <Path Name="ProfilePath" Style="{StaticResource NavigationPath}"></Path>
-                                <Label Content="Профиль"/>
-                            </StackPanel>
-                        </Button>
-                <Button x:Name="RegistrationUserButton" Click="RegistrationUserButton_Click" 
-                         Style="{StaticResource NavigationStyle}">
-                    <StackPanel Orientation="Horizontal">
-                                <Path Name="AccountPath" Style="{StaticResource NavigationPath}"></Path>
-                        <Label Content="Аккаунты"/>
-                    </StackPanel>
-                </Button>
-                    <Button x:Name="UserButton" Click="UserButton_Click" 
-                            Style="{StaticResource NavigationStyle}" >
-                        <StackPanel Orientation="Horizontal">
-                                <Path Name="UserPath" Style="{StaticResource NavigationPath}"></Path>
-                        <Label Content="Пользователи"/>
-                    </StackPanel>
-                </Button>
-                    <Button  x:Name="AddProductsButton" Click="AddProductsButton_Click"  
-                            >
-                    <StackPanel Orientation="Horizontal">
-                        <Path Name="AddProductPath"></Path>
-                        <Label Content="Добавить товар"/>
-                    </StackPanel>
-                </Button>
-                    <Button x:Name="ProductsButton" Click="ProductsButton_Click" 
-                            Style="{StaticResource NavigationStyle}">
-                    <StackPanel Orientation="Horizontal">
-                                <Path Name="ProductPath" Style="{StaticResource NavigationPath}"></Path>
-                        <Label Content="Товары"/>
-                    </StackPanel>
-                </Button>
-                        <wpfdesingapp:NavigationButton Content="Настройки" Data="{StaticResource ProfilePathData}"></wpfdesingapp:NavigationButton>
-                    <Button x:Name="SettingsButton" Click="SettingsButton_Click"
-                            Style="{StaticResource NavigationStyle}">
-                    <StackPanel Orientation="Horizontal">
-                                <Path Name="SettingsPath" Style="{StaticResource NavigationPath}"></Path>
-                        <Label Content="Настройки" VerticalContentAlignment="Center"/>
-                    </StackPanel>
-                </Button>
-            </StackPanel>
-            
-        </StackPanel>
-            
-            </StackPanel>
-            <Button x:Name="ChangeAccountButton" Click="ChangeAccountButton_Click" VerticalAlignment="Bottom" HorizontalContentAlignment="Left" 
-                    Style="{StaticResource NavigationStyle}">
-                <StackPanel Orientation="Horizontal">
-                    <Path Name="ChangePath" Style="{StaticResource NavigationPath}"></Path>
-                    <Label Content="Сменить аккаунт" VerticalContentAlignment="Center"/>
                 </StackPanel>
-            </Button>
+            <StackPanel VerticalAlignment="Center">
+
+
+                <my:NavigationButton Content="Профиль" Data="{StaticResource ProfilePathData}"
+                                             x:Name="ProfileButton" Click="ProfileButton_Click"/>
+                <my:NavigationButton Content="Аккаунты" Data="{StaticResource AccountPathData}"
+                            x:Name="AddUserButton" Click="AddUserButton_Click"/>
+
+                <my:NavigationButton Content="Сотрудники" Data="{StaticResource UserPathData}"
+                                             x:Name="UserButton" Click="UserButton_Click"/>
+
+                <my:NavigationButton Content="Добавить товар" Data="{StaticResource AddProductPathData}"
+                                             x:Name="AddProductsButton" Click="AddProductsButton_Click"/>
+
+                <my:NavigationButton Content="Товары" Data="{StaticResource ProductPathData}"
+                                             x:Name="ProductsButton" Click="ProductsButton_Click"/>
+
+                <my:NavigationButton Content="Настройки" Data="{StaticResource SettingsPathData}"
+                                             x:Name="SettingsButton" Click="SettingsButton_Click"/>
+            </StackPanel>
+
+            <my:NavigationButton Content="Сменить аккаунт" Data="{StaticResource ChangePathData}"
+                x:Name="ChangeAccountButton" Click="ChangeAccountButton_Click" VerticalAlignment="Bottom"/>
+
         </Grid>
 
         <Frame NavigationUIVisibility="Hidden" x:Name="MenuFrame" Grid.Row="1" Grid.Column="1" Margin="5"/>
@@ -137,37 +98,3 @@
         </StackPanel>
     </Grid>
 </Window>
-
-<!--<Style TargetType="Button" BasedOn="{StaticResource NavigationStyle}" x:Key="ProfileButtonStyle">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type Button}">
-                        <Border CornerRadius="5" Background="{TemplateBinding Background}" x:Name="ColorBackground">
-                            <Grid>
-                                <StackPanel Orientation="Horizontal">
-                                <Path x:Name="PathIcon" Data="{StaticResource Profile}"/>
-                                <ContentPresenter x:Name="MyContentPresenter" Content="Профиль"  VerticalAlignment="Center"/>
-                                </StackPanel>
-                            </Grid>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>-->
-<!--<Button.ContentTemplate>
-                                <DataTemplate>
-                                    <StackPanel Orientation="Horizontal">
-                                        <Path Name="PathIcon" Data="{StaticResource Profile}"/>
-                                        <ContentPresenter  Content="Профиль"  VerticalAlignment="Center"/>
-                                    </StackPanel>
-                                </DataTemplate>
-                            </Button.ContentTemplate>-->
-
-<!--<Button.Template>
-                                <ControlTemplate TargetType="Button">
-                                    <StackPanel Orientation="Horizontal">
-                                        <Path x:Name="PathIcon" Data="{StaticResource Profile}"/>
-                                        <ContentPresenter x:Name="MyContentPresenter" Content="Профиль"  VerticalAlignment="Center"/>
-                                    </StackPanel>
-                                </ControlTemplate>
-                            </Button.Template>-->

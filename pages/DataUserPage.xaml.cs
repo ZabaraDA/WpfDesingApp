@@ -35,6 +35,9 @@ namespace WpfDesingApp.pages
             //    r = r.Where(x => x.Код != idUsers[i]).ToList();
             //}
             //UserListView.ItemsSource = r.ToList();
+
+            UserListView.ItemsSource = databases.Сотрудник.ToList();
+
             SearchUserDataUpdate();
             
         }

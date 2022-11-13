@@ -5,6 +5,8 @@ VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfDesingApp", "WpfDesingApp.csproj", "{AE65F9EE-7CDA-49E6-B839-E66991300E9D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfCustomControlLibrary", "..\WpfCustomControlLibrary\WpfCustomControlLibrary.csproj", "{F103C134-4C3C-4D7D-AB09-E974E01530E3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{AE65F9EE-7CDA-49E6-B839-E66991300E9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AE65F9EE-7CDA-49E6-B839-E66991300E9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AE65F9EE-7CDA-49E6-B839-E66991300E9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F103C134-4C3C-4D7D-AB09-E974E01530E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F103C134-4C3C-4D7D-AB09-E974E01530E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F103C134-4C3C-4D7D-AB09-E974E01530E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F103C134-4C3C-4D7D-AB09-E974E01530E3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

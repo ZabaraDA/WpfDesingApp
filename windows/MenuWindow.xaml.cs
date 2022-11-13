@@ -16,66 +16,34 @@ using System.Windows.Threading;
 using System.Windows.Media.Animation;
 using WpfDesingApp.csclasses;
 using WpfDesingApp.pages;
-//using static WpfDesingApp.windows.MenuWindow;
-//using WpfDesingApp.customcontrols;
+
 
 namespace WpfDesingApp.windows
-{  
+{
     public partial class MenuWindow : Window
-    {       
+    {
         DoubleAnimation doubleAnimation = new DoubleAnimation();
         bool panelState = true;
         public MenuWindow()
-        {   
-            
+        {
+
             InitializeComponent();
             ExitPath.Data = Geometry.Parse(PathDataClass.exitData);
             WindowStatePath.Data = Geometry.Parse(PathDataClass.fullScreenData);
             HidePath.Data = Geometry.Parse(PathDataClass.hideData);
-            ChangePath.Data = Geometry.Parse(PathDataClass.changeData);
-            SettingsPath.Data = Geometry.Parse(PathDataClass.settingsData);
-            ProductPath.Data = Geometry.Parse(PathDataClass.productData);
-            UserPath.Data = Geometry.Parse(PathDataClass.userData);
-            AddProductPath.Data =Geometry.Parse(PathDataClass.addProductData);
-            AccountPath.Data = Geometry.Parse(PathDataClass.accountData);
-            UserPath.Data= Geometry.Parse(PathDataClass.userData);
-            ControlPanelPath.Data = Geometry.Parse(PathDataClass.reduceData);
-            ProfilePath.Data = Geometry.Parse(PathDataClass.profileData);
-            //ProfileButton.Content = PathDataClass.profileData;
-            StatusBarLabel.Content = "Главное меню - Приветствие";
-            
-            MenuFrame.Navigate(new WelcomePage());
-            //ExButton er = new ExButton();
-            //er.Data = Geometry.Parse(PathDataClass.profileData);
-            
-            
-        }
-        //public class ExButton : Button
-        //{
-        //    public static readonly DependencyProperty DataProperty = DependencyProperty.Register(
-        //    "Data", typeof(Geometry), typeof(ExButton), new PropertyMetadata(default(Geometry)));
 
-        //    public Geometry Data
-        //    {
-        //        get { return (Geometry)GetValue(DataProperty); }
-        //        set { SetValue(DataProperty, value); }
-        //    }
-        //    public ExButton()
-        //    {
-                
-        //    }
-        //}
+            //ControlPanelButton.Data = ne
+                /*(Geometry)FindResource("ReducePathData");*/
+            StatusBarLabel.Content = "Главное меню - Приветствие";
+
+            MenuFrame.Navigate(new WelcomePage());
+
+
+
+        }
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            //if (WindowState == WindowState.Normal)
-            //{
-            //    this.DragMove();
-            //}
-            //else if (WindowState == WindowState.Maximized)
-            //{
-            //    WindowState = WindowState.Normal;
-            //}
             this.DragMove();
         }
 
@@ -84,7 +52,7 @@ namespace WpfDesingApp.windows
             Application.Current.Shutdown();
         }
 
-        
+
 
         private void CollapseButton_Click(object sender, RoutedEventArgs e)
         {
@@ -123,7 +91,7 @@ namespace WpfDesingApp.windows
             MenuFrame.Navigate(new DataProductPage());
         }
 
-        private void RegistrationUserButton_Click(object sender, RoutedEventArgs e)
+        private void AddUserButton_Click(object sender, RoutedEventArgs e)
         {
             StatusBarLabel.Content = "Главное меню - Добавление новых пользователей";
             MenuFrame.Navigate(new AddUserPage());
@@ -153,25 +121,25 @@ namespace WpfDesingApp.windows
             if (panelState == true)
             {
                 doubleAnimation.From = ControlPanel.ActualWidth;
-                doubleAnimation.To = 80;
+                doubleAnimation.To = 70;
                 doubleAnimation.Duration = TimeSpan.FromSeconds(0.5);
                 doubleAnimation.EasingFunction = new QuadraticEase();
                 ControlPanel.BeginAnimation(WidthProperty, doubleAnimation);
-                ControlPanelPath.Data = Geometry.Parse(PathDataClass.expandData);
+                ControlPanelButton.Data = Geometry.Parse(PathDataClass.expandData);
                 panelState = false;
             }
             else if (panelState == false)
             {
                 doubleAnimation.From = ControlPanel.ActualWidth;
-                doubleAnimation.To = 300;
+                doubleAnimation.To = 210;
                 doubleAnimation.Duration = TimeSpan.FromSeconds(0.5);
                 doubleAnimation.EasingFunction = new QuadraticEase();
                 ControlPanel.BeginAnimation(WidthProperty, doubleAnimation);
-                ControlPanelPath.Data = Geometry.Parse(PathDataClass.reduceData);
+                ControlPanelButton.Data =  Geometry.Parse(PathDataClass.reduceData);
                 panelState = true;
             }
         }
 
-      
+
     }
 }
