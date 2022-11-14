@@ -190,47 +190,5 @@
                 </StackPanel>
             </StackPanel>
         </ScrollViewer>
-        <!--<StackPanel>
-            <StackPanel Margin="10" Orientation="Vertical">
-                <StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Имя"></TextBlock>
-                        <TextBlock Text="Фамилия"></TextBlock>
-                        <TextBlock Text="Дата рождения"></TextBlock>
-                        <TextBlock Text="Адрес" ></TextBlock>
-                        <TextBlock Text="Пол" ></TextBlock>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBox Name="NameTextBox" ></TextBox>
-                        <TextBox Name="FornameTextBox" ></TextBox>
-                        <DatePicker Name="BrithDatePicker" Width="200"></DatePicker>
-                        <TextBox Name="AddressTextBox" ></TextBox>
-                        <ComboBox Name="GenderComboBox" >
-                            <ComboBoxItem Text="Не выбрано" IsSelected="True" />
-                            <ComboBoxItem Text="Мужской"/>
-                            <ComboBoxItem Text="Женский"/>
-                        </ComboBox>
-                    </StackPanel>
-                </StackPanel>
-                <StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Логин" ></TextBlock>
-                        <TextBlock Text="Email"></TextBlock>
-                        <TextBlock Text="Пароль" Name="PasswordTextBlock"></TextBlock>
-                        <TextBlock Text="Повторите пароль" Name="DoublePasswordTextBlock" ></TextBlock>
-                        <TextBlock Text="Фото профиля"></TextBlock>
-                        <TextBlock Text="Предоставить уровень доступа" ></TextBlock>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBox Name="LoginTextBox" ></TextBox>
-                        <TextBox Name="EmailTextBox" ></TextBox>
-                        <PasswordBox Name="PasswordBox"  SelectionOpacity="-2" Width="200"/>
-                        <PasswordBox Name="DoublePasswordBox"  Width="200"></PasswordBox>
-                        <Button x:Name="AddPhotoButton" Text="Обзор"  Width="200"></Button>
-                        <ComboBox Name="AccessComboBox"  Width="200"></ComboBox>
-                    </StackPanel>
-                </StackPanel>
-            </StackPanel>
-        </StackPanel>-->
     </Grid>
 </Page>

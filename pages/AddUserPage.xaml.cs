@@ -32,7 +32,7 @@ namespace WpfDesingApp.pages
         };
 
         bool addWithAccount;
-        bool correctly;
+        bool correctly = true;
 
         byte[] photoProfile;
 
@@ -67,7 +67,7 @@ namespace WpfDesingApp.pages
 
         private void AddUserButton_Click(object sender, RoutedEventArgs e)
         {
-            if(NameTextBox.Text == "" || NameTextBox.Text == null)
+            if (NameTextBox.Text == "" || NameTextBox.Text == null)
             {
                 correctly = false;
                 exeptionData = "Введите имя";
@@ -75,20 +75,83 @@ namespace WpfDesingApp.pages
             else if (SurnameTextBox.Text == "" || SurnameTextBox.Text == null)
             {
                 correctly = false;
-                exeptionData = "Введите имя";
+                exeptionData = "Введите фамилию";
             }
-            else if (SurnameTextBox.Text == "" || SurnameTextBox.Text == null)
+            else if (PatronymicTextBox.Text == "" || PatronymicTextBox.Text == null)
             {
                 correctly = false;
-                exeptionData = "Введите имя";
+                exeptionData = "Введите отчество";
             }
-
-
-            if (correctly == true)
+            else if (ProfessionComboBox.SelectedIndex == 0)
+            {
+                correctly = false;
+                exeptionData = "Укажите должность";
+            }
+            else if (AddressTextBox.Text == "" || AddressTextBox.Text == null)
+            {
+                correctly = false;
+                exeptionData = "Введите место жительства";
+            }
+            else if (GenderComboBox.SelectedIndex == 0)
+            {
+                correctly = false;
+                exeptionData = "Укажите пол";
+            }
+            else if (DOBDatePicker.Text == "" || DOBDatePicker.Text == null)
+            {
+                correctly = false;
+                exeptionData = "Укажите дату рождения";
+            }
+            else if (FamilyStatusComboBox.SelectedIndex == 0)
+            {
+                correctly = false;
+                exeptionData = "Укажите семейное положение";
+            }
+            else if (INNTextBox.Text == "" || INNTextBox.Text == null)
+            {
+                correctly = false;
+                exeptionData = "Введите ИНН";
+            }
+            else if (OMSTextBox.Text == "" || OMSTextBox.Text == null)
+            {
+                correctly = false;
+                exeptionData = "Введите ОМС";
+            }
+            else if (SNILSTextBox.Text == "" || SNILSTextBox.Text == null)
+            {
+                correctly = false;
+                exeptionData = "Введите СНИЛС";
+            }
+            else if (PhoneTextBox.Text == "" || PhoneTextBox.Text == null)
+            {
+                correctly = false;
+                exeptionData = "Введите номер телефона";
+            }
+            else if (CitizenshipTextBox.Text == "" || CitizenshipTextBox.Text == null)
+            {
+                correctly = false;
+                exeptionData = "Введите гражданство";
+            }
+            else if (EmploymentDatePicker.Text == "" || EmploymentDatePicker.Text == null)
+            {
+                correctly = false;
+                exeptionData = "Укажите дату трудоустройства";
+            }
+            else if (MilitaryServiceComboBox.SelectedIndex == 0)
+            {
+                correctly = false;
+                exeptionData = "Укажите статус военного учёта";
+            }
+            else if (EmailTextBox.Text == "" || EmailTextBox.Text == null)
+            {
+                correctly = false;
+                exeptionData = "Введите электронную почту";
+            }
+            else if (correctly == true)
             {
                 testDatabases.Сотрудник.Add(new Сотрудник
                 {
-                    Код = testDatabases.Сотрудник.Count(),
+                    
                     Имя = NameTextBox.Text,
                     Фамилия = SurnameTextBox.Text,
                     Отчество = PatronymicTextBox.Text,
@@ -109,23 +172,52 @@ namespace WpfDesingApp.pages
             }
             if (addWithAccount == true)
             {
-                testDatabases.УчётнаяЗапись.Add(new УчётнаяЗапись
+                if(LoginTextBox.Text == "" || LoginTextBox.Text == null)
                 {
-                    Код = testDatabases.УчётнаяЗапись.Count(),
-                    Логин = LoginTextBox.Text,
-                    Пароль = PasswordBox.Password,
-                    Доступ = AccessComboBox.SelectedIndex,
-                    КодСотрудника = testDatabases.Сотрудник.Count()
-
-                });
+                    correctly = false;
+                    exeptionData = "Введите логин";
+                }
+                else if (PasswordBox.Password == "" || PasswordBox.Password == null)
+                {
+                    correctly = false;
+                    exeptionData = "Введите пароль";
+                }
+                else if (PasswordBox.Password != DoublePasswordBox.Password)
+                {
+                    correctly = false;
+                    exeptionData = "Пароли не совпадают";
+                }
+                else if (AccessComboBox.SelectedIndex == 0)
+                {
+                    correctly = false;
+                    exeptionData = "Укажите уровень доступа к системе";
+                }
+                else if (correctly == true)
+                {
+                    testDatabases.УчётнаяЗапись.Add(new УчётнаяЗапись
+                    {
+                        Логин = LoginTextBox.Text,
+                        Пароль = PasswordBox.Password,
+                        Доступ = AccessComboBox.SelectedIndex,
+                        КодСотрудника = testDatabases.Сотрудник.Count()
+                    });
+                }
             }
 
             if (correctly == true)
             {
-                testDatabases.SaveChanges();
+                try
+                {
+                    testDatabases.SaveChanges();
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message); 
+                }
             }
             else
             {
+                MessageBox.Show(exeptionData);
                 correctly = true;
             }
            
