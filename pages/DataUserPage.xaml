@@ -4,9 +4,20 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:WpfDesingApp.pages"
+      xmlns:my="clr-namespace:WpfCustomControlLibrary;assembly=WpfCustomControlLibrary"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="DataUserPage">
+    <Page.Resources>
+        <Style TargetType="{x:Type my:TextBoxWithRemoved}">
+            <Setter Property="Width" Value="225"/>
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="1"/>
+        </Style>
+    </Page.Resources>
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -45,7 +56,7 @@
                                         </ImageBrush>
                                     </Border.Background>
                                 </Border>
-                                <StackPanel Margin="10" TextBlock.FontSize="16" TextBlock.FontFamily="Comic Sans MS" TextBlock.Foreground="Black" >
+                                <StackPanel Margin="10" TextBlock.FontSize="16">
                                     <TextBlock Text="{Binding Path=Фамилия}" FontSize="20"></TextBlock>
                                     <TextBlock Text="{Binding Path=Имя}" ></TextBlock>
                                     <TextBlock Text="{Binding Path=Отчество}"></TextBlock>
@@ -64,49 +75,27 @@
             <StackPanel>
                 <TextBlock Text="Фильтры" HorizontalAlignment="Center" ></TextBlock>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Выбрано"></TextBlock>
-                    <TextBlock Name="FilterNumberOfProductsLabel"></TextBlock>
-                    <TextBlock Text="из"></TextBlock>
-                    <TextBlock Name="NumberOfProductsLabel"></TextBlock>
-                    <TextBlock Text="Товаров"></TextBlock>
+                    <TextBlock Text="Выбрано "></TextBlock>
+                    <TextBlock Name="FilterNumberOfUserTextBlock"></TextBlock>
+                    <TextBlock Text=" из "></TextBlock>
+                    <TextBlock Name="NumberOfUsersTextBlock"></TextBlock>
+                    <TextBlock Text=" Сотрудников"></TextBlock>
                 </StackPanel>
-                <TextBlock Text="Поиск по названию"></TextBlock>
-                <TextBox Name="NameSearchTextBox" TextChanged="SearchTextBox_TextChanged"></TextBox>
-                <Label Content="Поиск по производителю"></Label>
-                <ComboBox Name="ManufacturerSearchComboBox" SelectionChanged="SearchComboBox_SelectionChanged" ></ComboBox>
-                <Label Content="Поиск по категории"></Label>
-                <ComboBox Name="CategorySearchComboBox" SelectionChanged="SearchComboBox_SelectionChanged" ></ComboBox>
-                <Label Content="Фото"></Label>
-                <ComboBox Name="PhotoSearchComboBox" SelectionChanged="SearchComboBox_SelectionChanged">
-                    <ComboBoxItem Content="Все товары"></ComboBoxItem>
-                    <ComboBoxItem Content="Товары с фото"></ComboBoxItem>
-                    <ComboBoxItem Content="Товары без фото"></ComboBoxItem>
+                <TextBlock Text="Поиск по ФИО"></TextBlock>
+                <my:TextBoxWithRemoved Name="NameSearchTextBox" TextChanged="SearchTextBox_TextChanged"></my:TextBoxWithRemoved>
+                <TextBlock Text="Семейное положение"></TextBlock>
+                <ComboBox Name="FamilyStatusComboBox" SelectionChanged="SearchComboBox_SelectionChanged">
+                    <ComboBoxItem Content="Все сотрудники"></ComboBoxItem>
+                    <ComboBoxItem Content="Женат/Замужем"></ComboBoxItem>
+                    <ComboBoxItem Content="Холост/Не замужем"></ComboBoxItem>
                 </ComboBox>
-                <Label Content="Наличие на складе"></Label>
-                <ComboBox VerticalAlignment="Center" Name="InStockComboBox" SelectionChanged="SearchComboBox_SelectionChanged">
-                    <ComboBoxItem Content="Все товары"></ComboBoxItem>
-                    <ComboBoxItem Content="Есть в наличии"></ComboBoxItem>
-                    <ComboBoxItem Content="Нет в наличии"></ComboBoxItem>
-                </ComboBox>
-
-                <Label Content="Сортировать по цене"></Label>
-                <ComboBox Name="CostSearchComboBox" SelectionChanged="SearchComboBox_SelectionChanged">
-                    <ComboBoxItem Content="Произвольно"></ComboBoxItem>
-                    <ComboBoxItem Content="По возрастанию"></ComboBoxItem>
-                    <ComboBoxItem Content="По убыванию"></ComboBoxItem>
-                </ComboBox>
-                <StackPanel Orientation="Horizontal">
-                    <Label Content="От"></Label>
-                    <TextBox Width="115" Name="MinimumCostTextBox" TextChanged="SearchTextBox_TextChanged"></TextBox>
-                    <Label Content="До"></Label>
-                    <TextBox Width="115" Name="MaximumCostTextBox" TextChanged="SearchTextBox_TextChanged"></TextBox>
-                </StackPanel>
+                
 
 
                 <Button Width="200" Height="40" Content="Сбросить фильтры" x:Name="ClearFilterButton" Click="ClearFilterButton_Click"></Button>
             </StackPanel>
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom">
-                <Label Content="Редактировать"></Label>
+                <TextBlock Text="Редактировать"></TextBlock>
                 <Button Width="100" Height="40" Content="Добавить" x:Name="AddProductButton" Click="AddProductButton_Click"></Button>
                 <Button Width="100" Height="40" Content="Удалить"  x:Name="DeleteProductButton" Click="DeleteProductButton_Click" Margin="10"></Button>
                 <Button Width="100" Height="40" Content="Изменить" x:Name="ChangeParametersButton" Click="ChangeParametersButton_Click"></Button>

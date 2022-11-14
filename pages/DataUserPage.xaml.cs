@@ -36,7 +36,7 @@ namespace WpfDesingApp.pages
             //}
             //UserListView.ItemsSource = r.ToList();
 
-            UserListView.ItemsSource = databases.Сотрудник.ToList();
+           
 
             SearchUserDataUpdate();
             
@@ -44,10 +44,29 @@ namespace WpfDesingApp.pages
 
         private void SearchUserDataUpdate()
         {
-            var itemUser = databases.Сотрудник.ToList();
-            int numberOfProducts = databases.Сотрудник.Count();
-            // вывод количества
+            var itemUsers = databases.Сотрудник.ToList();
+            int numberOfUsers = databases.Сотрудник.Count();
+            NumberOfUsersTextBlock.Text = numberOfUsers.ToString();
 
+            if(NameSearchTextBox.Text != "" && NameSearchTextBox.Text != null)
+            {
+                itemUsers = itemUsers.Where(x => x.Фамилия.ToLower().Contains(NameSearchTextBox.Text.ToLower()) || x.Имя.ToLower().Contains(NameSearchTextBox.Text.ToLower()) || x.Отчество.ToLower().Contains(NameSearchTextBox.Text.ToLower())).ToList();
+            }
+            if (FamilyStatusComboBox.SelectedIndex > 0)
+            {
+                if (FamilyStatusComboBox.SelectedIndex == 1)
+                {
+                    itemUsers = itemUsers.Where(x => x.СемейноеПоложение.Equals(true)).ToList();
+                }
+                else if (FamilyStatusComboBox.SelectedIndex == 2)
+                {
+                    itemUsers = itemUsers.Where(x => x.СемейноеПоложение.Equals(false)).ToList();
+                }
+            }
+
+            numberOfUsers = itemUsers.Count();
+            FilterNumberOfUserTextBlock.Text = numberOfUsers.ToString();
+            UserListView.ItemsSource = itemUsers.ToList();
         }
         private void SearchComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e) 
         {
