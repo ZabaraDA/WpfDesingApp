@@ -12,9 +12,6 @@
         MouseLeftButtonDown="Window_MouseLeftButtonDown" WindowStyle="None"
         FontSize="20"  FontFamily="Bahnschrift Light SemiCondensed"
         BorderBrush="Transparent" BorderThickness="0">
-
-    <!--AllowDrop="True"-->
-
     <WindowChrome.WindowChrome>
         <WindowChrome NonClientFrameEdges="Bottom" CaptionHeight="0" ResizeBorderThickness="5"/>
     </WindowChrome.WindowChrome>

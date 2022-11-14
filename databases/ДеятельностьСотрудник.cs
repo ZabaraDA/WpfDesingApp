@@ -12,14 +12,14 @@ namespace WpfDesingApp.databases
     using System;
     using System.Collections.Generic;
     
-    public partial class Аккаунт
+    public partial class ДеятельностьСотрудник
     {
-        public int Код { get; set; }
-        public string Логин { get; set; }
-        public string Пароль { get; set; }
-        public int Доступ { get; set; }
-        public int КодСотрудника { get; set; }
+        public int КодСорудника { get; set; }
+        public int КодДеятельности { get; set; }
+        public System.DateTime НачалоПериода { get; set; }
+        public System.DateTime КонецПериода { get; set; }
     
+        public virtual Деятельность Деятельность { get; set; }
         public virtual Сотрудник Сотрудник { get; set; }
     }
 }

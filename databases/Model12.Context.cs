@@ -25,7 +25,10 @@ namespace WpfDesingApp.databases
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Аккаунт> Аккаунт { get; set; }
+        public virtual DbSet<Деятельность> Деятельность { get; set; }
+        public virtual DbSet<ДеятельностьСотрудник> ДеятельностьСотрудник { get; set; }
+        public virtual DbSet<Должность> Должность { get; set; }
         public virtual DbSet<Сотрудник> Сотрудник { get; set; }
+        public virtual DbSet<УчётнаяЗапись> УчётнаяЗапись { get; set; }
     }
 }

@@ -4,9 +4,15 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="886bf132dafd46eb88ed60fc499872a6" Name="Diagram1" ZoomLevel="146">
-        <EntityTypeShape EntityType="TestDatabasesModel.Аккаунт" Width="1.5" PointX="3" PointY="1.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TestDatabasesModel.Сотрудник" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+      <Diagram DiagramId="bdba50d39b554648af92fb038061d4d7" Name="Diagram1">
+        <EntityTypeShape EntityType="TestDatabasesModel.Деятельность" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestDatabasesModel.ДеятельностьСотрудник" Width="1.5" PointX="5.25" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestDatabasesModel.Должность" Width="1.5" PointX="0.75" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestDatabasesModel.Сотрудник" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestDatabasesModel.УчётнаяЗапись" Width="1.5" PointX="5.25" PointY="5.5" IsExpanded="true" />
+        <AssociationConnector Association="TestDatabasesModel.FK_ДеятельностьСотрудник_Деятельность" ManuallyRouted="false" />
+        <AssociationConnector Association="TestDatabasesModel.FK_ДеятельностьСотрудник_Сотрудник" ManuallyRouted="false" />
+        <AssociationConnector Association="TestDatabasesModel.FK_Сотрудник_Должность" ManuallyRouted="false" />
         <AssociationConnector Association="TestDatabasesModel.FK_Аккаунт_Сотрудник" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>

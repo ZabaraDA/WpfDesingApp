@@ -6,7 +6,6 @@
       xmlns:my="clr-namespace:WpfCustomControlLibrary;assembly=WpfCustomControlLibrary"
       xmlns:local="clr-namespace:WpfDesingApp.pages"
       mc:Ignorable="d" 
-      d:DesignHeight="1300" d:DesignWidth="2000"
       Title="AddUserPage" FontSize="24">
     <Page.Resources>
         <Style TargetType="{x:Type TextBlock}">
@@ -17,6 +16,7 @@
             <Setter Property="FontSize" Value="24"/>
             <Setter Property="FontFamily" Value="Bahnschrift SemiBold Condensed"/>
             <Setter Property="Margin" Value="1"/>
+            <Setter Property="HorizontalAlignment" Value="Left"></Setter>
 
         </Style>
         <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource BaseTextBoxStyle}">
@@ -44,7 +44,7 @@
             <Setter Property="Margin" Value="1"/>
         </Style>
         <Style TargetType="{x:Type Button}" BasedOn="{StaticResource NavigationStyle}">
-            <Setter Property="Height" Value="35"/>
+            <Setter Property="Height" Value="45"/>
             <Setter Property="FontSize" Value="24"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
@@ -52,14 +52,13 @@
         </Style>
     </Page.Resources>
     <Grid>
-
-        <ScrollViewer VerticalAlignment="Center">
-            <StackPanel>
+        <ScrollViewer VerticalAlignment="Top" Grid.RowSpan="2">
+            <StackPanel Margin="10">
                 <StackPanel  HorizontalAlignment="Center" Orientation="Horizontal">
                     <StackPanel >
-                        <Border CornerRadius="10" Width="360" Height="580" HorizontalAlignment="Left" VerticalAlignment="Top" BorderBrush="Black" Background="#FFD2D2D2" Margin="0 0 10 10">
+                        <Border CornerRadius="10" Width="360" Height="600" HorizontalAlignment="Left" VerticalAlignment="Top" BorderBrush="Black" Background="#FFD2D2D2" Margin="0 0 10 10">
                             <StackPanel>
-                                <TextBlock Text="Пользователь" HorizontalAlignment="Center" Margin="10" Width="auto"></TextBlock>
+                                <TextBlock Text="Сотрудник" Margin="10" HorizontalAlignment="Center"></TextBlock>
                                 <Border CornerRadius="10" Width="300" Height="300" HorizontalAlignment="Left" BorderBrush="Black" BorderThickness="1" VerticalAlignment="Top" Margin="30 0 0 10">
                                     <Border.Background>
                                         <ImageBrush Stretch="UniformToFill" x:Name="PhotoProfile">
@@ -73,7 +72,7 @@
                                         </ImageBrush>
                                     </Border.Background>
                                 </Border>
-                                <Button x:Name="AddPhotoButton" Click="AddPhotoButton_Click" Content="Добавить фото" Width="170"></Button>
+                                <Button x:Name="AddPhotoButton" Click="AddPhotoButton_Click" Content="Добавить фото" Width="200"></Button>
                                 <StackPanel Orientation="Horizontal" Margin="20">
 
                                     <StackPanel>
@@ -82,19 +81,19 @@
                                         <TextBlock Text="Отчество" ></TextBlock>
                                     </StackPanel>
                                     <StackPanel>
-                                        <TextBox Text="Фамилия" Width="240"></TextBox>
-                                        <TextBox Text="Имя" Width="240" Margin="0 10 0 10"></TextBox>
-                                        <TextBox Text="Отчество" Width="240"></TextBox>
+                                        <my:TextBoxWithRemoved Uid="Введите фамилию" Width="240" Name="SurnameTextBox"/>
+                                        <my:TextBoxWithRemoved Uid="Введите имя" Width="240" Margin="0 10 0 10" Name="NameTextBox"/>
+                                        <my:TextBoxWithRemoved Uid="Введите отчество" Width="240" Name="PatronymicTextBox"/>
                                     </StackPanel>
                                 </StackPanel>
                             </StackPanel>
                         </Border>
                     </StackPanel>
                     <StackPanel  Width="700" HorizontalAlignment="Left" >
-                        <Border CornerRadius="10" BorderBrush="Black" Background="#FFD2D2D2" Height="580">
+                        <Border CornerRadius="10" BorderBrush="Black" Background="#FFD2D2D2" Height="600">
                             <StackPanel>
-                                <TextBlock Text="Информация о пользователе" HorizontalAlignment="Center" Margin="10" Width="auto"></TextBlock>
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Height="510">
+                                <TextBlock Text="Информация о сотруднике" Margin="10" HorizontalAlignment="Center"></TextBlock>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                                     <Border Background="#FF969696" CornerRadius="10 0 0 10">
                                         <StackPanel HorizontalAlignment="Left" Margin="10 10 0 0">
                                             <TextBlock Text="Должность"></TextBlock>
@@ -110,27 +109,37 @@
                                             <TextBlock Text="Гражданство"></TextBlock>
                                             <TextBlock Text="Дата трудоустройства"></TextBlock>
                                             <TextBlock Text="Военная служба"></TextBlock>
+                                            <TextBlock Text="Электронная почта"></TextBlock>
                                         </StackPanel>
                                     </Border>
                                     <Border Background="#FFB9B9B9" Width="450" CornerRadius="0 10 10 0">
                                         <StackPanel HorizontalAlignment="Left" Margin="10 10 0 0">
-                                            <ComboBox x:Name="ComboBox"></ComboBox>
-                                            <my:TextBoxWithRemoved Uid="Введите аддрес проживания" Name="AddressTextBox" IsHitTestVisible="True"></my:TextBoxWithRemoved>
-                                            <ComboBox x:Name="GenderComboBox"></ComboBox>
-                                            <my:TextBoxWithRemoved Uid="Возраст"></my:TextBoxWithRemoved>
-                                            <DatePicker HorizontalContentAlignment="Center"></DatePicker>
+                                            <ComboBox x:Name="ProfessionComboBox"></ComboBox>
+                                            <my:TextBoxWithRemoved Uid="Введите аддрес проживания" Name="AddressTextBox"></my:TextBoxWithRemoved>
+                                            <ComboBox x:Name="GenderComboBox">
+                                                <ComboBoxItem Content="Не выбрано"></ComboBoxItem>
+                                                <ComboBoxItem Content="Мужской"></ComboBoxItem>
+                                                <ComboBoxItem Content="Женский"></ComboBoxItem>
+                                            </ComboBox>
+                                            <my:TextBoxWithRemoved Uid="Возраст" Name="AgeTextBox"></my:TextBoxWithRemoved>
+                                            <DatePicker HorizontalContentAlignment="Center" Name="DOBDatePicker" Height="35" Margin="1"></DatePicker>
                                             <ComboBox x:Name="FamilyStatusComboBox">
-                                                <ComboBoxItem Content="Все сотрудники"></ComboBoxItem>
+                                                <ComboBoxItem Content="Не выбрано"></ComboBoxItem>
                                                 <ComboBoxItem Content="Женат/Замужем"></ComboBoxItem>
                                                 <ComboBoxItem Content="Холост/Не замужем"></ComboBoxItem>
                                             </ComboBox>
-                                            <TextBox Text="ИНН" Name="INNTextBox"></TextBox>
-                                            <TextBox Text="ОМС" Name="OMSTextBox"></TextBox>
-                                            <TextBox Text="СНИЛС" Name="SNILSTextBox"></TextBox>
-                                            <TextBox Text="Номер телефона" Name="PhoneTextBox"></TextBox>
-                                            <TextBox Text="Гражданство" Name="CitizenshipTextBox"></TextBox>
-                                            <DatePicker Text="Дата трудоустройства" HorizontalContentAlignment="Center"></DatePicker>
-                                            <ComboBox></ComboBox>
+                                            <my:TextBoxWithRemoved Uid="Введите ИНН" Name="INNTextBox"></my:TextBoxWithRemoved>
+                                            <my:TextBoxWithRemoved Uid="Введите ОМС" Name="OMSTextBox"></my:TextBoxWithRemoved>
+                                            <my:TextBoxWithRemoved Uid="Введите СНИЛС" Name="SNILSTextBox"></my:TextBoxWithRemoved>
+                                            <my:TextBoxWithRemoved Uid="Введите номер телефона" Name="PhoneTextBox"></my:TextBoxWithRemoved>
+                                            <my:TextBoxWithRemoved Uid="Введите гражданство" Name="CitizenshipTextBox"></my:TextBoxWithRemoved>
+                                            <DatePicker HorizontalContentAlignment="Center" Height="35" Margin="1" Name="EmploymentDatePicker"></DatePicker>
+                                            <ComboBox Name="MilitaryServiceComboBox">
+                                                <ComboBoxItem Content="Не выбрано"></ComboBoxItem>
+                                                <ComboBoxItem Content="Не пройдена"></ComboBoxItem>
+                                                <ComboBoxItem Content="Пройдена"></ComboBoxItem>
+                                            </ComboBox>
+                                            <my:TextBoxWithRemoved Uid="Введите электронную почту" Name="EmailTextBox"></my:TextBoxWithRemoved>
                                         </StackPanel>
                                     </Border>
                                 </StackPanel>
@@ -138,32 +147,47 @@
                         </Border>
                     </StackPanel>
                 </StackPanel>
-                <Border CornerRadius="10" HorizontalAlignment="Center" BorderBrush="Black" Background="#FFD2D2D2" Height="230" Width="1070">
-                    <StackPanel Margin="10">
-                        <TextBlock Text="Сведения об аккаунте" HorizontalAlignment="Center" Margin="0 0 0 10"></TextBlock>
-                        <StackPanel>
-                            <Border Background="#FF969696"  CornerRadius="10 10 0 0" Height="80">
-                                <StackPanel Margin="20" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                                    <TextBlock Text="Логин" Width="220" ></TextBlock>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Border CornerRadius="10" BorderBrush="Black" Background="#FFD2D2D2" Height="250" Width="700">
+                        <StackPanel Margin="10" >
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Сведения об аккаунте" HorizontalAlignment="Center" Margin="240 0 40 0"></TextBlock>
+                                <Button Width="220" HorizontalAlignment="Right" Content="Добавить аккаунт" x:Name="AddAccountButton" Click="AddAccountButton_Click"></Button>
+                            </StackPanel>
+                            <TextBlock Text="Пользователь без доступа к системе" Margin="50" HorizontalAlignment="Center" Name="AccountTextBlock"></TextBlock>
+                            <StackPanel Margin="10" Orientation="Horizontal" Name="AccountDataStackPanel" Visibility="Collapsed">
 
-                                    <TextBlock Text="Роль в системе" Width="220" ></TextBlock>
-                                    <TextBlock Text="Электронная почта"  Width="220" ></TextBlock>
-                                    <TextBlock Text="Дата регистрации" Width="220" ></TextBlock>
-
+                                <StackPanel HorizontalAlignment="Left" Margin="10 10 0 0">
+                                    <TextBlock Text="Логин"></TextBlock>
+                                    <TextBlock Text="Пароль"></TextBlock>
+                                    <TextBlock Text="Повторите пароль"></TextBlock>
+                                    <TextBlock Text="Доступ"></TextBlock>
                                 </StackPanel>
-                            </Border>
-                            <Border Background="#FFB9B9B9"   CornerRadius="0 0 10 10" Height="80">
-                                <StackPanel Margin="20" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                                    <TextBlock Text="Логин" Width="220" ></TextBlock>
-                                    <TextBlock Text="Роль в системе" Width="220" ></TextBlock>
-                                    <TextBlock Text="Электронная почта"  Width="220" ></TextBlock>
-                                    <TextBlock Text="Дата регистрации" Width="220" ></TextBlock>
 
+                                <StackPanel HorizontalAlignment="Left" Margin="10 10 0 0" >
+                                    <my:TextBoxWithRemoved Uid="Введите логин" Name="LoginTextBox" ></my:TextBoxWithRemoved>
+                                    <PasswordBox Name="PasswordBox" Height="35" Margin="1"></PasswordBox>
+                                    <PasswordBox Name="DoublePasswordBox" Height="35" Margin="1"></PasswordBox>
+                                    <ComboBox x:Name="AccessComboBox">
+                                        <ComboBoxItem Content="Не выбрано"></ComboBoxItem>
+                                        <ComboBoxItem Content="Системный администратор"></ComboBoxItem>
+                                        <ComboBoxItem Content="Администратор"></ComboBoxItem>
+                                        <ComboBoxItem Content="Менеджер"></ComboBoxItem>
+
+                                    </ComboBox>
                                 </StackPanel>
-                            </Border>
+                            </StackPanel>
                         </StackPanel>
-                    </StackPanel>
-                </Border>
+                    </Border>
+                    <Border CornerRadius="10" HorizontalAlignment="Left" BorderBrush="Black" Background="#FFD2D2D2"  Width="360" Margin="10 0 0 0">
+                        <StackPanel Margin="10">
+                            <TextBlock Text="Панель действий" HorizontalAlignment="Center"></TextBlock>
+                            <Button Margin="3" Content="Добавить сотрудника" x:Name="AddUserButton" Click="AddUserButton_Click"></Button>
+                            <Button Margin="3" Content="Добавить новую должность" x:Name="AddProfessionButton"></Button>
+                            <Button Margin="3" Content="Очистить все поля" x:Name="ClearInputFields" Click="ClearInputFields_Click"></Button>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
             </StackPanel>
         </ScrollViewer>
         <!--<StackPanel>

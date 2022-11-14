@@ -49,11 +49,9 @@
                                     <TextBlock Text="{Binding Path=Фамилия}" FontSize="20"></TextBlock>
                                     <TextBlock Text="{Binding Path=Имя}" ></TextBlock>
                                     <TextBlock Text="{Binding Path=Отчество}"></TextBlock>
-                                    <TextBlock Text="{Binding Path=Сотрудник.Телефон, StringFormat={}Телефон: {0}}"></TextBlock>
-                                    <TextBlock Text="{Binding Path=Сотрудник.Почта, StringFormat={}Почта: {0}}"></TextBlock>
-                                    <TextBlock Text="{Binding Path=Логин}"></TextBlock>
-                                    <TextBlock Text="{Binding Path=Доступ}"></TextBlock>
-                                    <TextBlock Text="{Binding Path=Логин}"></TextBlock>
+                                    <TextBlock Text="{Binding Path=Телефон, StringFormat={}Телефон: {0}}"></TextBlock>
+                                    <TextBlock Text="{Binding Path=Почта, StringFormat={}Почта: {0}}"></TextBlock>
+                                  
                                 </StackPanel>
                             </StackPanel>
                         </Border>

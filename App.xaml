@@ -63,6 +63,12 @@
         <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
         <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
         <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+        <SolidColorBrush x:Key="TextBox.Static.Border" Color="#FF828282"/>
+        <SolidColorBrush x:Key="TextBox.MouseOver.Border" Color="Black"/>
+        <SolidColorBrush x:Key="TextBox.Focus.Border" Color="#FF0CA500"/>
+        <SolidColorBrush x:Key="TextBox.Static.Border1" Color="#FF828282"/>
+        <SolidColorBrush x:Key="TextBox.MouseOver.Border1" Color="Black"/>
+        <SolidColorBrush x:Key="TextBox.Focus.Border1" Color="#FF0CA500"/>
         
         <Style TargetType="Path" x:Key="NavigationPath">
             <Setter Property="Width" Value="30" />
@@ -79,9 +85,6 @@
             </Style.Triggers>
         </Style>
 
-        <SolidColorBrush x:Key="TextBox.Static.Border" Color="#FF828282"/>
-        <SolidColorBrush x:Key="TextBox.MouseOver.Border" Color="Black"/>
-        <SolidColorBrush x:Key="TextBox.Focus.Border" Color="#FF0CA500"/>
         <Style TargetType="{x:Type PasswordBox}">
             <Setter Property="PasswordChar" Value="●"/>
             <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
@@ -129,6 +132,7 @@
                 </MultiTrigger>
             </Style.Triggers>
         </Style>
+        
         <Style x:Key="ButtonFocusVisual" >
             <Setter Property="Control.Template">
                 <Setter.Value>
@@ -138,9 +142,7 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        <SolidColorBrush x:Key="TextBox.Static.Border1" Color="#FF828282"/>
-        <SolidColorBrush x:Key="TextBox.MouseOver.Border1" Color="Black"/>
-        <SolidColorBrush x:Key="TextBox.Focus.Border1" Color="#FF0CA500"/>
+        
         <Style TargetType="{x:Type TextBox}" x:Key="BaseTextBoxStyle">
             <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
             <Setter Property="BorderBrush" Value="{StaticResource TextBox.Static.Border1}"/>
@@ -184,6 +186,7 @@
                 </MultiTrigger>
             </Style.Triggers>
         </Style>
+        
         <Style TargetType="{x:Type Button}" x:Key="NavigationStyle">
             <Setter Property="Background" Value="#FF9A9A9A" />
             <Setter Property="Foreground" Value="#FF423F3F" />
@@ -259,5 +262,6 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        
     </Application.Resources>
 </Application>
