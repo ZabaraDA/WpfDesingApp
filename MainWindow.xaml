@@ -49,7 +49,7 @@
         <StackPanel Grid.Row="1"  Width="300" >
             <Image Source="images/Logo.png" Height="150"  Grid.Row="1" Margin="0 40 0 40" VerticalAlignment="Top"></Image>
             <TextBlock Text="Введите логин" />
-            <my:TextBoxWithRemoved x:Name="LoginTextBox"></my:TextBoxWithRemoved>
+            <my:TextBoxWithRemoved x:Name="LoginTextBox" Style="{StaticResource LoginTextBoxWithRemoved}"></my:TextBoxWithRemoved>
             <TextBlock Text="Введите пароль" />
             <PasswordBox x:Name="PasswordBox" HorizontalContentAlignment="Center"></PasswordBox>
             <Button Content="Забыли пароль?"  Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF636363" 

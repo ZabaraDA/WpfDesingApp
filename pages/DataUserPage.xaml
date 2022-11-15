@@ -6,27 +6,31 @@
       xmlns:local="clr-namespace:WpfDesingApp.pages"
       xmlns:my="clr-namespace:WpfCustomControlLibrary;assembly=WpfCustomControlLibrary"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="DataUserPage">
+      FontSize="16"
+      Title="DataUserPage" >
     <Page.Resources>
         <Style TargetType="{x:Type my:TextBoxWithRemoved}">
-            <Setter Property="Width" Value="225"/>
-            <Setter Property="Height" Value="25"/>
+            <!--<Setter Property="Width" Value="265"/>-->
+            <Setter Property="Height" Value="35"/>
             <Setter Property="FontSize" Value="20"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
             <Setter Property="Margin" Value="1"/>
         </Style>
+        <Style TargetType="{x:Type Button}" BasedOn="{StaticResource NavigationStyle}">
+            <Setter Property="Margin" Value="5"></Setter>
+            <Setter Property="Width" Value="200"></Setter>
+        </Style>
     </Page.Resources>
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="220"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
             
-        <ListView Name="UserListView" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+        <ListView Name="UserListView" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalAlignment="Center" HorizontalContentAlignment="Center" BorderBrush="{x:Null}" Background="{x:Null}" Width="auto">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel ></WrapPanel>
@@ -34,15 +38,15 @@
             </ListView.ItemsPanel>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid>
-                        <Border CornerRadius="5" Width="600">
+                    <Grid Width="220">
+                        <Border CornerRadius="5">
                             <Border.Background >
                                 <LinearGradientBrush>
                                     <GradientStop Color="#FFA9A6A6" Offset="0"/>
                                     <GradientStop Color="#FFB9B9B9" Offset="1"/>
                                 </LinearGradientBrush>
                             </Border.Background>
-                            <StackPanel Orientation="Horizontal">
+                            <StackPanel Orientation="Vertical">
                                 <Border  CornerRadius="10" HorizontalAlignment="Left" Height="190" Width="190" Margin="15" >
                                     <Border.Background>
                                         <ImageBrush Stretch="UniformToFill">
@@ -60,9 +64,15 @@
                                     <TextBlock Text="{Binding Path=Фамилия}" FontSize="20"></TextBlock>
                                     <TextBlock Text="{Binding Path=Имя}" ></TextBlock>
                                     <TextBlock Text="{Binding Path=Отчество}"></TextBlock>
+                                    <TextBlock Text="{Binding Path=Должность.Наименование}"></TextBlock>
                                     <TextBlock Text="{Binding Path=Телефон, StringFormat={}Телефон: {0}}"></TextBlock>
+                                    <TextBlock Text="{Binding Path=Пол, StringFormat={}Пол: {0}}"></TextBlock>
                                     <TextBlock Text="{Binding Path=Почта, StringFormat={}Почта: {0}}"></TextBlock>
-                                  
+                                    <TextBlock Text="{Binding Path=ИНН, StringFormat={}ИНН: {0}}"></TextBlock>
+                                    <TextBlock Text="{Binding Path=ОМС, StringFormat={}ОМС: {0}}"></TextBlock>
+                                    <TextBlock Text="{Binding Path=СНИЛС, StringFormat={}СНИЛС: {0}}"></TextBlock>
+                                    <TextBlock Text="{Binding Path=ДатаРождения, StringFormat={}Дата_рождения: {0}}" TextWrapping="WrapWithOverflow"></TextBlock>
+                                    <TextBlock Text="{Binding Path=ДатаТрудоустройства, StringFormat={}Дата_трудоустройства: {0}}" TextWrapping="WrapWithOverflow"></TextBlock>
                                 </StackPanel>
                             </StackPanel>
                         </Border>
@@ -71,7 +81,7 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <StackPanel Grid.Column="1" Name="ProductEditStackPanel">
+        <StackPanel Grid.Column="1" Name="ProductEditStackPanel" Margin="0 0 5 0">
             <StackPanel>
                 <TextBlock Text="Фильтры" HorizontalAlignment="Center" ></TextBlock>
                 <StackPanel Orientation="Horizontal">
@@ -84,22 +94,41 @@
                 <TextBlock Text="Поиск по ФИО"></TextBlock>
                 <my:TextBoxWithRemoved Name="NameSearchTextBox" TextChanged="SearchTextBox_TextChanged"></my:TextBoxWithRemoved>
                 <TextBlock Text="Семейное положение"></TextBlock>
-                <ComboBox Name="FamilyStatusComboBox" SelectionChanged="SearchComboBox_SelectionChanged">
+                <ComboBox Name="FamilyStatusSearchComboBox" SelectionChanged="SearchComboBox_SelectionChanged">
                     <ComboBoxItem Content="Все сотрудники"></ComboBoxItem>
                     <ComboBoxItem Content="Женат/Замужем"></ComboBoxItem>
                     <ComboBoxItem Content="Холост/Не замужем"></ComboBoxItem>
                 </ComboBox>
-                
-
-
-                <Button Width="200" Height="40" Content="Сбросить фильтры" x:Name="ClearFilterButton" Click="ClearFilterButton_Click"></Button>
+                <TextBlock Text="Должность"></TextBlock>
+                <ComboBox Name="ProfessionSearchComboBox" SelectionChanged="SearchComboBox_SelectionChanged"></ComboBox>
+                <TextBlock Text="Пол"></TextBlock>
+                <ComboBox Name="GenderSearchComboBox" SelectionChanged="SearchComboBox_SelectionChanged">
+                    <ComboBoxItem Content="Все сотрудники"></ComboBoxItem>
+                    <ComboBoxItem Content="Мужской"></ComboBoxItem>
+                    <ComboBoxItem Content="Женский"></ComboBoxItem>
+                </ComboBox>
+                <TextBlock Text="Военная служба"></TextBlock>
+                <ComboBox Name="MilitaryServiceSearchComboBox" SelectionChanged="SearchComboBox_SelectionChanged">
+                    <ComboBoxItem Content="Все сотрудники"></ComboBoxItem>
+                    <ComboBoxItem Content="Не пройдена"></ComboBoxItem>
+                    <ComboBoxItem Content="Пройдена"></ComboBoxItem>
+                </ComboBox>
+                <TextBlock Text="Доступ к системе" ></TextBlock>
+                <ComboBox Name="AccountSearchComboBox" SelectionChanged="SearchComboBox_SelectionChanged">
+                    <ComboBoxItem Content="Все сотрудники"></ComboBoxItem>
+                    <ComboBoxItem Content="С доступом к системе"></ComboBoxItem>
+                    <ComboBoxItem Content="Без доступа к системе"></ComboBoxItem>
+                </ComboBox>
+                <Button  Content="Сбросить фильтры" x:Name="ClearFilterButton" Click="ClearFilterButton_Click"></Button>
             </StackPanel>
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom">
                 <TextBlock Text="Редактировать"></TextBlock>
-                <Button Width="100" Height="40" Content="Добавить" x:Name="AddProductButton" Click="AddProductButton_Click"></Button>
-                <Button Width="100" Height="40" Content="Удалить"  x:Name="DeleteProductButton" Click="DeleteProductButton_Click" Margin="10"></Button>
-                <Button Width="100" Height="40" Content="Изменить" x:Name="ChangeParametersButton" Click="ChangeParametersButton_Click"></Button>
-
+                <Button  Content="Добавить &#xa;сотрудника" x:Name="AddProductButton" Click="AddProductButton_Click"></Button>
+                <Button  Content="Удалить"  x:Name="DeleteProductButton" Click="DeleteProductButton_Click" ></Button>
+                <Button Content="Изменить" x:Name="ChangeParametersButton" Click="ChangeParametersButton_Click"></Button>
+                <Button  Content="Добавить" x:Name="AddProductButton1"></Button>
+                <Button  Content="Удалить"  x:Name="DeleteProductButton1" ></Button>
+                <Button Content="Изменить" x:Name="ChangeParametersButton1"></Button>
 
             </StackPanel>
         </StackPanel>

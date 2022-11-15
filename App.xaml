@@ -69,7 +69,9 @@
         <SolidColorBrush x:Key="TextBox.Static.Border1" Color="#FF828282"/>
         <SolidColorBrush x:Key="TextBox.MouseOver.Border1" Color="Black"/>
         <SolidColorBrush x:Key="TextBox.Focus.Border1" Color="#FF0CA500"/>
-        
+        <SolidColorBrush x:Key="TextBlock.Static.Foreground" Color="Gray"/>
+
+
         <Style TargetType="Path" x:Key="NavigationPath">
             <Setter Property="Width" Value="30" />
             <Setter Property="Height" Value="30" />
@@ -192,7 +194,7 @@
             <Setter Property="Foreground" Value="#FF423F3F" />
             <Setter Property="FontSize" Value="20"/>
             <Setter Property="SnapsToDevicePixels" Value="True" />
-            <Setter Property="Margin" Value="10"></Setter>
+           
             <Setter Property="Height" Value="45"></Setter>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="FocusVisualStyle"
@@ -262,6 +264,72 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        
+
+        <Style TargetType="my:TextBoxWithRemoved" x:Key="LoginTextBoxWithRemoved">
+            <Setter Property="Width" Value="200"></Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type my:TextBoxWithRemoved}">
+
+                        <Grid>
+                            <TextBlock Text="{TemplateBinding Uid}" x:Name="PART_TextBlock" Foreground="{StaticResource TextBlock.Static.Foreground}"
+                                       HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Visibility="Collapsed"></TextBlock>
+                            <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                            <Button Width="{TemplateBinding Height}" Height="auto" HorizontalAlignment="Right" x:Name="PART_Button" Content="X" Visibility="Collapsed" 
+                                    HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" FontSize="20"></Button>
+                            <Border VerticalAlignment="Bottom" Background="Black" Height="2" Name="border" Width="{TemplateBinding Width}"></Border>
+                            <Border VerticalAlignment="Bottom" Background="{TemplateBinding Background}" Height="1"></Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+
+                            <Trigger Property="IsEnabled" Value="false"> <!--если выключен-->                          
+                                <!--<Setter Property="Opacity" TargetName="border" Value="0.56"/>--> 
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <!--<Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TextBox.MouseOver.Border1}"/>-->
+                            </Trigger>
+                            <Trigger Property="IsKeyboardFocused" Value="true">
+                                <!--<Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TextBox.Focus.Border1}"/>-->
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Width"  From="0"></DoubleAnimation>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                            </Trigger>
+                            <Trigger Property="IsKeyboardFocused" Value="false">
+                                <!--<Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TextBox.Focus.Border1}"/>-->
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Width"  From="0"></DoubleAnimation>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="PART_Button" Property="Visibility" Value="Visible"></Setter>
+                            </Trigger>
+                            <Trigger Property="Text" Value="">
+                                <Setter TargetName="PART_Button" Property="Visibility" Value="Collapsed"></Setter>
+                            </Trigger>
+                            <Trigger Property="Text" Value="">
+                                <Setter TargetName="PART_TextBlock" Property="Visibility" Value="Visible"></Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="IsInactiveSelectionHighlightEnabled" Value="true"/>
+                        <Condition Property="IsSelectionActive" Value="false"/>
+                    </MultiTrigger.Conditions>
+                    <Setter Property="SelectionBrush" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
+                </MultiTrigger>
+            </Style.Triggers>
+        </Style>
     </Application.Resources>
 </Application>
