@@ -50,5 +50,19 @@ namespace WpfDesingApp
             //createCaptchaWindow.Show(); 
             this.Close();
         }
+
+        private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if (PasswordBox.Password.Length > 0)
+            {
+                border2.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                border2.Visibility = Visibility.Collapsed;
+            }
+        }
+
+        
     }
 }

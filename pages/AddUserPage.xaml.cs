@@ -151,7 +151,6 @@ namespace WpfDesingApp.pages
             {
                 testDatabases.Сотрудник.Add(new Сотрудник
                 {
-                    
                     Имя = NameTextBox.Text,
                     Фамилия = SurnameTextBox.Text,
                     Отчество = PatronymicTextBox.Text,

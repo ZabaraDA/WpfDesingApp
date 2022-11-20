@@ -103,11 +103,12 @@ namespace WpfDesingApp.pages
                 }
                 if (AccountSearchComboBox.SelectedIndex == 1)
                 {
-                    itemUsers = r.ToList();
+                    itemUsers = itemUsers.Except(r).ToList();
+                    
                 }
                 else if (AccountSearchComboBox.SelectedIndex == 2)
                 {
-                    itemUsers = itemUsers.Except(r).ToList();
+                    itemUsers = r.ToList();
                 }
             }
 
@@ -124,13 +125,29 @@ namespace WpfDesingApp.pages
             SearchUserDataUpdate();
         }
 
-        private void AddProductButton_Click(object sender, RoutedEventArgs e)
+        private void AddUserButton_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new AddUserPage());
         }
 
-        private void DeleteProductButton_Click(object sender, RoutedEventArgs e)
+        private void DeleteUserButton_Click(object sender, RoutedEventArgs e)
         {
+            var userItem = UserListView.SelectedItem as Сотрудник;
+            if (userItem != null)
+            {
+                var lp = databases.УчётнаяЗапись.Where(x => x.КодСотрудника.Equals(userItem.Код)).FirstOrDefault();
+                if (lp == null)
+                {
+                    databases.Сотрудник.Remove(userItem);
+                    databases.SaveChanges();
+                    SearchUserDataUpdate();
+                }
+                else
+                {
+                    MessageBox.Show("У сотрудника есть связанный аккаунт");
+                }
+            }
+           
 
         }
 
@@ -141,7 +158,12 @@ namespace WpfDesingApp.pages
 
         private void ClearFilterButton_Click(object sender, RoutedEventArgs e)
         {
-
+            ProfessionSearchComboBox.SelectedIndex = 0;
+            NameSearchTextBox.Text = "";
+            FamilyStatusSearchComboBox.SelectedIndex = 0;
+            MilitaryServiceSearchComboBox.SelectedIndex = 0;
+            GenderSearchComboBox.SelectedIndex = 0;
+            AccountSearchComboBox.SelectedIndex = 0;
         }
     }
 }

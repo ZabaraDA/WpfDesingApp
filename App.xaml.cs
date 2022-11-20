@@ -14,5 +14,9 @@ namespace WpfDesingApp
     /// </summary>
     public partial class App : Application
     {
+        private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

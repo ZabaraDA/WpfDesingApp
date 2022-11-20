@@ -87,7 +87,7 @@
             </Style.Triggers>
         </Style>
 
-        <Style TargetType="{x:Type PasswordBox}">
+        <!--<Style TargetType="{x:Type PasswordBox}">
             <Setter Property="PasswordChar" Value="●"/>
             <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
             <Setter Property="BorderBrush" Value="{StaticResource TextBox.Static.Border}"/>
@@ -133,7 +133,7 @@
                     <Setter Property="SelectionBrush" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
                 </MultiTrigger>
             </Style.Triggers>
-        </Style>
+        </Style>-->
         
         <Style x:Key="ButtonFocusVisual" >
             <Setter Property="Control.Template">
@@ -265,27 +265,30 @@
             </Setter>
         </Style>
 
-        <Style TargetType="my:TextBoxWithRemoved" x:Key="LoginTextBoxWithRemoved">
+
+        <Style TargetType="PasswordBox">
+            <Setter Property="PasswordChar" Value="●"/>
             <Setter Property="Width" Value="300"/>
             <Setter Property="Background" Value="Black"/>
             <Setter Property="SelectionBrush" Value="Black"/>
             <Setter Property="BorderBrush" Value="White"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="Height" Value="25"/>
+            
+            <!--<EventSetter Event="PasswordChanged" Handler="PasswordBox_PasswordChanged"/>-->
             <Setter Property="Template">
                 <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type my:TextBoxWithRemoved}">
+                    <ControlTemplate TargetType="{x:Type PasswordBox}">
                         <Grid>
-                            <TextBlock Text="{TemplateBinding Uid}" x:Name="PART_TextBlock" Foreground="{StaticResource TextBlock.Static.Foreground}"
-                                       HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Visibility="Collapsed"></TextBlock>
                             <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
-                            <Button Width="{TemplateBinding Height}" Height="auto" HorizontalAlignment="Right" x:Name="PART_Button" Content="X" Visibility="Collapsed" 
-                                    HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" FontSize="20"></Button>
-                            <Border VerticalAlignment="Bottom" Background="{TemplateBinding Background}" Height="2" Name="border" Width="{TemplateBinding Width}">
+                            
+                            <Border VerticalAlignment="Bottom" Background="{TemplateBinding BorderBrush}" Name="border1" Height="1"></Border>
+                            <Border VerticalAlignment="Bottom" Background="{TemplateBinding Background}" Height="1" Name="border" Width="{TemplateBinding Width}">
                                 <Border.LayoutTransform>
                                     <ScaleTransform ScaleX="0"></ScaleTransform>
                                 </Border.LayoutTransform>
                             </Border>
-                            <Border VerticalAlignment="Bottom" Background="{TemplateBinding BorderBrush}" Name="border1" Height="1"></Border>
-                            <Border VerticalAlignment="Bottom" Background="{TemplateBinding SelectionBrush}" Name="border2" Height="1" ></Border>
+                            <Border VerticalAlignment="Bottom" Background="{TemplateBinding SelectionBrush}" Visibility="Hidden" Name="border2" Height="1" ></Border>
                         </Grid>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsEnabled" Value="false">
@@ -296,7 +299,7 @@
                                 <MultiTrigger.Conditions>
                                     <Condition Property="IsMouseOver" Value="true"/>
                                     <Condition Property="IsFocused" Value="false"/>
-                                    <Condition Property="Text" Value=""/>
+
                                 </MultiTrigger.Conditions>
                                 <MultiTrigger.EnterActions>
                                     <BeginStoryboard>
@@ -313,14 +316,6 @@
                                     </BeginStoryboard>
                                 </MultiTrigger.ExitActions>
                             </MultiTrigger>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="PART_Button" Property="Visibility" Value="Visible"></Setter>
-                            </Trigger>
-                            <Trigger Property="Text" Value="">
-                                <Setter TargetName="PART_Button" Property="Visibility" Value="Collapsed"></Setter>
-                                <Setter TargetName="PART_TextBlock" Property="Visibility" Value="Visible"></Setter>
-                                <Setter TargetName="border2" Property="Visibility" Value="Collapsed"/>
-                            </Trigger>
                             <Trigger Property="IsFocused" Value="True">
                                 <Setter TargetName="border" Property="Visibility" Value="Hidden"/>
                                 <Setter TargetName="border2" Property="Visibility" Value="Visible"/>
@@ -339,31 +334,6 @@
                 </MultiTrigger>
             </Style.Triggers>
         </Style>
+
     </Application.Resources>
 </Application>
-
-
-
-
-
-
-<!--<Trigger Property="IsMouseOver" Value="true">
-                                -->
-<!--from - начало to - конец-->
-<!--
-                                <Trigger.EnterActions>
-                                    <BeginStoryboard>
-                                        <Storyboard TargetName="border" TargetProperty="LayoutTransform.ScaleX">
-                                            <DoubleAnimation  To="1" From="0" Duration="0:00:0.3"></DoubleAnimation>
-                                        </Storyboard>
-                                    </BeginStoryboard>
-                                </Trigger.EnterActions>
-                                <Trigger.ExitActions>
-                                    <BeginStoryboard>
-                                        <Storyboard TargetName="border" TargetProperty="LayoutTransform.ScaleX">
-                                            <DoubleAnimation To="0" From="1" Duration="0:00:0.3"></DoubleAnimation>
-                                        </Storyboard>
-                                    </BeginStoryboard>
-                                </Trigger.ExitActions>
-                                <Setter TargetName="PART_Button" Property="Visibility" Value="Visible"></Setter>
-                            </Trigger>-->

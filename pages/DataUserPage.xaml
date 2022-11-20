@@ -123,10 +123,10 @@
             </StackPanel>
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom">
                 <TextBlock Text="Редактировать"></TextBlock>
-                <Button  Content="Добавить &#xa;сотрудника" x:Name="AddProductButton" Click="AddProductButton_Click"></Button>
-                <Button  Content="Удалить"  x:Name="DeleteProductButton" Click="DeleteProductButton_Click" ></Button>
+                <Button  Content="Добавить &#xa;сотрудника" x:Name="AddProductButton" Click="AddUserButton_Click"></Button>
+                <Button  Content="Удалить"  x:Name="DeleteProductButton" Click="DeleteUserButton_Click" ></Button>
                 <Button Content="Изменить" x:Name="ChangeParametersButton" Click="ChangeParametersButton_Click"></Button>
-                <Button  Content="Добавить" x:Name="AddProductButton1"></Button>
+                <Button  Content="Добавить" x:Name="AddUserButton1"></Button>
                 <Button  Content="Удалить"  x:Name="DeleteProductButton1" ></Button>
                 <Button Content="Изменить" x:Name="ChangeParametersButton1"></Button>
 

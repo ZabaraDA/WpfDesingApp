@@ -72,10 +72,10 @@
 
         <Frame NavigationUIVisibility="Hidden" x:Name="MenuFrame" Grid.Row="1" Grid.Column="1" Margin="5"/>
 
-        <Label Width="auto"
+        <Label Width="auto" Margin="0 5 0 0"
                Foreground="White" Grid.ColumnSpan="2" Name="StatusBarLabel"
                HorizontalContentAlignment="Center" 
-               FontFamily="Bahnschrift SemiBold Condensed"/>
+               />
         <StackPanel  HorizontalAlignment="Right" Margin="2" Orientation="Horizontal" Grid.Column="1">
             <Button Background="#FF5B5B5B" x:Name="CollapseButton" Click="CollapseButton_Click" Width="58" Style="{x:Null}">
                 <Path  Fill="#FF2F2F2F" Stretch="Fill" Name="HidePath"

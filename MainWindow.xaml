@@ -5,21 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfDesingApp" xmlns:my="clr-namespace:WpfCustomControlLibrary;assembly=WpfCustomControlLibrary"
         mc:Ignorable="d"
-        Title="MainWindow" Height="630" Width="450" 
-        AllowsTransparency="True" Background="Transparent" 
-        WindowStyle="None" WindowStartupLocation="CenterScreen"
-        MouseLeftButtonDown="Window_MouseLeftButtonDown"
-        FontSize="24" FontFamily="Bahnschrift SemiBold Condensed" 
-        ResizeMode="NoResize">
- 
+        Title="MainWindow" Height="630" Width="430" 
+        MouseLeftButtonDown="Window_MouseLeftButtonDown" WindowStyle="None"
+        FontSize="20"  FontFamily="Bahnschrift Light SemiCondensed"
+        BorderBrush="Transparent" BorderThickness="0" 
+        ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <WindowChrome.WindowChrome>
+        <WindowChrome NonClientFrameEdges="Bottom" CaptionHeight="0" ResizeBorderThickness="5"/>
+    </WindowChrome.WindowChrome>
+    <Window.Resources>
+        <Style TargetType="Button" BasedOn="{StaticResource NavigationStyle}"></Style>
+        
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"></RowDefinition>
             <RowDefinition Height="460"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <Border Grid.RowSpan="3" CornerRadius="5" Grid.Row="0" Background="Black"/>
-        <Border Grid.RowSpan="3" CornerRadius="5" Grid.Row="0" Margin="1">
+        <!--<Border Grid.RowSpan="3" Grid.Row="0" Background="White"/>-->
+        <Border Grid.RowSpan="3" Grid.Row="0" Margin="1">
             <Border.Background >
                 <LinearGradientBrush>
                     <GradientStop Color="#FFE8E8E8" Offset="0"/>
@@ -37,28 +42,30 @@
         </Border>
         <TextBlock Text="Окно авторизации" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"></TextBlock>
         <StackPanel  HorizontalAlignment="Right" Margin="2" Orientation="Horizontal">
-            <Button Background="{x:Null}" Width="58" HorizontalAlignment="Left" x:Name="CollapseButton" Click="CollapseButton_Click">
+            <Button Background="{x:Null}" Width="58" Style="{x:Null}" HorizontalAlignment="Left" x:Name="CollapseButton" Click="CollapseButton_Click">
                 <Image Source="images/RemoveImage.png"></Image>
             </Button>
-            <Button Background="{x:Null}" Width="58" HorizontalAlignment="Left" x:Name="ExitButton" Click="ExitButton_Click">
+            <Button Background="{x:Null}" Style="{x:Null}" Width="58" HorizontalAlignment="Left" x:Name="ExitButton" Click="ExitButton_Click">
                 <Image Source="images/ExitImage.png"></Image>
+                
                 </Button>
             
         </StackPanel>
         
         <StackPanel Grid.Row="1"  Width="300" >
             <Image Source="images/Logo.png" Height="150"  Grid.Row="1" Margin="0 40 0 40" VerticalAlignment="Top"></Image>
-            <TextBlock Text="Введите логин" />
-            <my:TextBoxWithRemoved x:Name="LoginTextBox" Style="{DynamicResource LoginTextBoxWithRemoved}"></my:TextBoxWithRemoved>
-            <TextBlock Text="Введите пароль" />
-            <PasswordBox x:Name="PasswordBox" HorizontalContentAlignment="Center"></PasswordBox>
+            <TextBlock Text="Введите логин"></TextBlock>
+            <my:LoginTextBoxWithRemoved x:Name="LoginTextBox" Uid="Введите логин" ></my:LoginTextBoxWithRemoved>
+            <TextBlock Text="Введите пароль"></TextBlock>
+            
+            <PasswordBox x:Name="PasswordBox" PasswordChanged="PasswordBox_PasswordChanged"/>
             <Button Content="Забыли пароль?"  Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF636363" 
                     HorizontalAlignment="Right" FontFamily="Segoe UI Light" FontSize="20" Cursor="Hand" Focusable="False"></Button>
         </StackPanel>
-        
+        <Border VerticalAlignment="Bottom" Visibility="Collapsed" Name="border2" Height="1" Background="Black" Grid.Row="1" Margin="0 0 0 132" Width="300"/>
       
-        <my:NavigationButton Width="150" Content="Войти" Grid.Row="2" VerticalAlignment="Top"
-                             x:Name="OpenButton" Click="OpenButton_Click"></my:NavigationButton>
+        <Button Width="150" Content="Войти" Grid.Row="2" VerticalAlignment="Top"
+                             x:Name="OpenButton" Click="OpenButton_Click"></Button>
         
 
        
