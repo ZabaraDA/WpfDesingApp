@@ -20,14 +20,14 @@ namespace WpfDesingApp.pages
     /// </summary>
     public partial class DataProductPage : Page
     {
-        TradeEntities tradeEntities = new TradeEntities();
+        //TradeEntities tradeEntities = new TradeEntities();
         public DataProductPage()
         {
            
 
             InitializeComponent();
-            DataContext = tradeEntities;
-            ProductListView.ItemsSource = tradeEntities.Product.ToList();
+            //DataContext = tradeEntities;
+            //ProductListView.ItemsSource = tradeEntities.Product.ToList();
          
 
         }

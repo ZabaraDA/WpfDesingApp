@@ -4,18 +4,16 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="0e8e33f7223e4bcdb1db91c477516d84" Name="Diagram1" ZoomLevel="146">
-        <EntityTypeShape EntityType="TradeModel.Category" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="TradeModel.Manufacturer" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="TradeModel.Order" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="TradeModel.Product" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TradeModel.Role" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TradeModel.User" Width="1.5" PointX="6" PointY="4.125" IsExpanded="true" />
-        <AssociationConnector Association="TradeModel.FK_Product_Category" ManuallyRouted="false" />
-        <AssociationConnector Association="TradeModel.FK_Product_Manufacturer" ManuallyRouted="false" />
-        <AssociationConnector Association="TradeModel.FK__User__UserRole__267ABA7A" ManuallyRouted="false" />
-        <AssociationConnector Association="TradeModel.OrderProduct" ManuallyRouted="false" />
-        <AssociationConnector Association="TradeModel.UserOrder" ManuallyRouted="false" />
+      <Diagram DiagramId="ebc83797ab0c4e308f3d05162d4b12e3" Name="Diagram1">
+        <EntityTypeShape EntityType="TestDatabasesModel.Деятельность" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestDatabasesModel.ДеятельностьСотрудник" Width="1.5" PointX="5.25" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestDatabasesModel.Должность" Width="1.5" PointX="0.75" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestDatabasesModel.Сотрудник" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestDatabasesModel.УчётнаяЗапись" Width="1.5" PointX="5.25" PointY="5.5" IsExpanded="true" />
+        <AssociationConnector Association="TestDatabasesModel.FK_ДеятельностьСотрудник_Деятельность" ManuallyRouted="false" />
+        <AssociationConnector Association="TestDatabasesModel.FK_ДеятельностьСотрудник_Сотрудник" ManuallyRouted="false" />
+        <AssociationConnector Association="TestDatabasesModel.FK_Сотрудник_Должность" ManuallyRouted="false" />
+        <AssociationConnector Association="TestDatabasesModel.FK_Аккаунт_Сотрудник" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

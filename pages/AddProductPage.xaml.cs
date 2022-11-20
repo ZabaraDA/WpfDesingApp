@@ -22,7 +22,7 @@ namespace WpfDesingApp.pages
     public partial class AddProductPage : Page
     {
         TestDatabasesEntities databases= new TestDatabasesEntities();
-        TradeEntities tradeEntities = new TradeEntities();
+        //TradeEntities tradeEntities = new TradeEntities();
 
         public AddProductPage()
         {

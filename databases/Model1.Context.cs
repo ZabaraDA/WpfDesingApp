@@ -13,10 +13,10 @@ namespace WpfDesingApp.databases
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class TradeEntities : DbContext
+    public partial class TestDatabasesEntities : DbContext
     {
-        public TradeEntities()
-            : base("name=TradeEntities")
+        public TestDatabasesEntities()
+            : base("name=TestDatabasesEntities")
         {
         }
     
@@ -25,11 +25,10 @@ namespace WpfDesingApp.databases
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Category> Category { get; set; }
-        public virtual DbSet<Manufacturer> Manufacturer { get; set; }
-        public virtual DbSet<Order> Order { get; set; }
-        public virtual DbSet<Product> Product { get; set; }
-        public virtual DbSet<Role> Role { get; set; }
-        public virtual DbSet<User> User { get; set; }
+        public virtual DbSet<Деятельность> Деятельность { get; set; }
+        public virtual DbSet<ДеятельностьСотрудник> ДеятельностьСотрудник { get; set; }
+        public virtual DbSet<Должность> Должность { get; set; }
+        public virtual DbSet<Сотрудник> Сотрудник { get; set; }
+        public virtual DbSet<УчётнаяЗапись> УчётнаяЗапись { get; set; }
     }
 }
