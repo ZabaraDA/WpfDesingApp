@@ -216,7 +216,6 @@
                                 <Setter Property="Background" Value="#FF5D5D5D" />
                                 <Setter Property="Foreground" Value="White" />
                                 <Setter TargetName="ColorBackground" Property="Background" Value="#FF3E3D3D"></Setter>
-                                
                             </Trigger>
                             <Trigger Property="IsKeyboardFocused" Value="true">
                                 <Setter Property="Background" TargetName="ColorBackground" Value="Green"/>

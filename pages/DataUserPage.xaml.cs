@@ -96,10 +96,10 @@ namespace WpfDesingApp.pages
             {
                 int[] idUsers = databases.УчётнаяЗапись.Select(x => x.КодСотрудника).ToArray();
                 var r = itemUsers.ToList();
-
                 for (int i = 0; i < idUsers.Length; i++)
                 {
                     r = r.Where(x => x.Код != idUsers[i]).ToList();
+
                 }
                 if (AccountSearchComboBox.SelectedIndex == 1)
                 {
