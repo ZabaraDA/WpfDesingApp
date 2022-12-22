@@ -16,7 +16,6 @@
     </WindowChrome.WindowChrome>
     <Window.Resources>
         <Style TargetType="Button" BasedOn="{StaticResource NavigationStyle}"></Style>
-        
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -24,7 +23,7 @@
             <RowDefinition Height="460"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <!--<Border Grid.RowSpan="3" Grid.Row="0" Background="White"/>-->
+      
         <Border Grid.RowSpan="3" Grid.Row="0" Margin="1">
             <Border.Background >
                 <LinearGradientBrush>
@@ -52,8 +51,8 @@
                 </Button>
             
         </StackPanel>
-        
-        <StackPanel Grid.Row="1"  Width="300" >
+
+        <StackPanel Grid.Row="1"  Width="300" Name="AuthorizationStackPanel">
             <Image Source="images/Logo.png" Height="150"  Grid.Row="1" Margin="0 40 0 40" VerticalAlignment="Top"></Image>
             <TextBlock Text="Введите логин"></TextBlock>
             <my:LoginTextBoxWithRemoved x:Name="LoginTextBox" Uid="Введите логин" ></my:LoginTextBoxWithRemoved>
@@ -67,8 +66,12 @@
       
         <Button Width="150" Content="Войти" Grid.Row="2" VerticalAlignment="Top"
                              x:Name="OpenButton" Click="OpenButton_Click"></Button>
-        
 
-       
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Name ="TimerStackPanel" Grid.RowSpan="3" Visibility="Hidden">
+            <Label Content="Данные введены неверно"></Label>
+            <Label FontSize="36" Name="TimerLabel" Content="ewdfefe" HorizontalAlignment="Center"></Label>
+        </StackPanel>
+
+
     </Grid>
 </Window>

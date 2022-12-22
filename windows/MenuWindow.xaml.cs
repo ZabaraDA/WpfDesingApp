@@ -111,6 +111,7 @@ namespace WpfDesingApp.windows
 
         private void ChangeAccountButton_Click(object sender, RoutedEventArgs e)
         {
+            StaticDataClass.timerStart = false;
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
             this.Close();
