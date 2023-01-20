@@ -10,7 +10,6 @@
       Title="DataUserPage" >
     <Page.Resources>
         <Style TargetType="{x:Type my:TextBoxWithRemoved}">
-            <!--<Setter Property="Width" Value="265"/>-->
             <Setter Property="Height" Value="35"/>
             <Setter Property="FontSize" Value="20"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
@@ -19,14 +18,19 @@
         </Style>
         <Style TargetType="{x:Type Button}" BasedOn="{StaticResource NavigationStyle}">
             <Setter Property="Margin" Value="5"></Setter>
-            <Setter Property="Width" Value="200"></Setter>
+            <Setter Property="Width" Value="160"></Setter>
+        </Style>
+        <Style TargetType="{x:Type ComboBox}">
+            <Setter Property="Margin" Value="5"></Setter>
+          
+            <Setter Property="Height" Value="35"></Setter>
         </Style>
     </Page.Resources>
 
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="220"></ColumnDefinition>
+            <ColumnDefinition Width="180"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
             
@@ -81,7 +85,7 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <StackPanel Grid.Column="1" Name="ProductEditStackPanel" Margin="0 0 5 0">
+        <StackPanel Grid.Column="1" Name="UserEditStackPanel" Margin="0 0 5 0" >
             <StackPanel>
                 <TextBlock Text="Фильтры" HorizontalAlignment="Center" ></TextBlock>
                 <StackPanel Orientation="Horizontal">

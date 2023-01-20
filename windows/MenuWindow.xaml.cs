@@ -16,30 +16,67 @@ using System.Windows.Threading;
 using System.Windows.Media.Animation;
 using WpfDesingApp.csclasses;
 using WpfDesingApp.pages;
-
+using WpfCustomControlLibrary;
+using WpfDesingApp.Properties;
+using System.Windows.Markup;
+using System.Xml.Linq;
+using System.ComponentModel;
+using System.IO;
 
 namespace WpfDesingApp.windows
 {
     public partial class MenuWindow : Window
     {
         DoubleAnimation doubleAnimation = new DoubleAnimation();
-        bool panelState = true;
+
+        int quantity = 0;
+        readonly List<(Page,string,string)> navigationButtonList = new List<(Page, string, string)>()
+        {
+          (new ProfilePage(),"Профиль","SettingsPathData"),
+          (new AddUserPage(), "Аккаунты","ProfilePathData"),
+          (new DataUserPage(), "Сотрудники","ProfilePathData"),
+        };
         public MenuWindow()
         {
 
             InitializeComponent();
+
             ExitPath.Data = Geometry.Parse(PathDataClass.exitData);
             WindowStatePath.Data = Geometry.Parse(PathDataClass.fullScreenData);
             HidePath.Data = Geometry.Parse(PathDataClass.hideData);
-
-            //ControlPanelButton.Data = ne
-                /*(Geometry)FindResource("ReducePathData");*/
             StatusBarLabel.Content = "Главное меню - Приветствие";
 
             MenuFrame.Navigate(new WelcomePage());
 
+            ButtonGenerator();
 
 
+
+        }
+
+        private void ButtonGenerator()
+        {
+            for (int i = 0; i < navigationButtonList.Count; i++)
+            {
+                NavigationButton navigationButton = new NavigationButton()
+                {
+                    Content = navigationButtonList[i].Item2,
+                    Data = (Geometry)Application.Current.FindResource(navigationButtonList[i].Item3),
+                    Tag = quantity++,
+                };
+
+                navigationButton.Click += Button_Click;
+                ControlStackPanel.Children.Add(navigationButton);
+            }
+
+        }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var a = sender as NavigationButton;
+
+            MenuFrame.Navigate(navigationButtonList[(int)a.Tag].Item1); 
+            
+            
         }
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -115,32 +152,28 @@ namespace WpfDesingApp.windows
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
             this.Close();
-        }
-
-        private void ControlPanelButton_Click(object sender, RoutedEventArgs e)
+        }  
+        private void ControlPanel_MouseEnter(object sender, MouseEventArgs e)
         {
-            if (panelState == true)
-            {
-                doubleAnimation.From = ControlPanel.ActualWidth;
-                doubleAnimation.To = 70;
-                doubleAnimation.Duration = TimeSpan.FromSeconds(0.5);
-                doubleAnimation.EasingFunction = new QuadraticEase();
-                ControlPanel.BeginAnimation(WidthProperty, doubleAnimation);
-                ControlPanelButton.Data = Geometry.Parse(PathDataClass.expandData);
-                panelState = false;
-            }
-            else if (panelState == false)
-            {
-                doubleAnimation.From = ControlPanel.ActualWidth;
-                doubleAnimation.To = 210;
-                doubleAnimation.Duration = TimeSpan.FromSeconds(0.5);
-                doubleAnimation.EasingFunction = new QuadraticEase();
-                ControlPanel.BeginAnimation(WidthProperty, doubleAnimation);
-                ControlPanelButton.Data =  Geometry.Parse(PathDataClass.reduceData);
-                panelState = true;
-            }
+             
+            doubleAnimation.From = ControlGrid.ActualWidth;
+            doubleAnimation.To = 210;
+            doubleAnimation.Duration = TimeSpan.FromSeconds(0.5);
+            doubleAnimation.EasingFunction = new QuadraticEase();
+            ControlGrid.BeginAnimation(WidthProperty, doubleAnimation);
+           
+            //panelState = true;
         }
 
-
+        private void ControlPanel_MouseLeave(object sender, MouseEventArgs e)
+        {
+            doubleAnimation.From = ControlGrid.ActualWidth;
+            doubleAnimation.To = 70;
+            doubleAnimation.Duration = TimeSpan.FromSeconds(0.5);
+            doubleAnimation.EasingFunction = new QuadraticEase();
+            ControlGrid.BeginAnimation(WidthProperty, doubleAnimation);
+          
+            //panelState = false;
+        }
     }
 }

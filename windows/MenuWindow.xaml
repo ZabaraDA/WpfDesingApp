@@ -21,7 +21,7 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="70"></ColumnDefinition>
             <ColumnDefinition ></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Border Grid.Row="0" Grid.ColumnSpan="2">
@@ -32,19 +32,46 @@
                 </LinearGradientBrush>
             </Border.Background>
         </Border>
-        <Grid Width="210" Grid.Row="1" HorizontalAlignment="Left" x:Name="ControlPanel"  Background="#FF9A9A9A" >
+      
+
+        <Frame NavigationUIVisibility="Hidden" x:Name="MenuFrame" Grid.Row="1" Grid.Column="1" Margin="5" Width="auto"/>
+
+        <Label Width="auto" Margin="0 5 0 0"
+               Foreground="White" Grid.ColumnSpan="2" Name="StatusBarLabel"
+               HorizontalContentAlignment="Center" 
+               />
+        <StackPanel  HorizontalAlignment="Right" Margin="2" Orientation="Horizontal" Grid.Column="1">
+            <Button Background="#FF5B5B5B" x:Name="CollapseButton" Click="CollapseButton_Click" Width="58" Style="{x:Null}">
+                <Path  Fill="#FF2F2F2F" Stretch="Fill" Name="HidePath"
+                       VerticalAlignment="Bottom" Margin="17 24 17 6"
+                       Style="{x:Null}"></Path>
+            </Button>
+            <Button Background="#FF5B5B5B" x:Name="FullScreenButton" Click="FullScreenButton_Click" Width="58" Style="{x:Null}">
+                <Path  Fill="#FF2F2F2F" Stretch="Fill" 
+                       Name="WindowStatePath" Margin="18 9 18 7" 
+                       Style="{x:Null}"></Path>
+            </Button>
+            <Button Background="#FF5B5B5B" x:Name="ExitButton" Click="ExitButton_Click" Width="58" Style="{x:Null}">
+                <Path  Fill="#FF2F2F2F" Stretch="Fill" 
+                       Name="ExitPath" Margin="18 8 18 8" 
+                       Style="{x:Null}" ></Path>
+            </Button>
+        </StackPanel>
+        <Grid Width="70" Grid.Row="1" HorizontalAlignment="Left" Name="ControlGrid" Grid.ColumnSpan="2"  Background="#FF9A9A9A" MouseEnter="ControlPanel_MouseEnter" MouseLeave="ControlPanel_MouseLeave">
+            <Grid.Effect>
+                <DropShadowEffect Opacity="0.15" BlurRadius="5" Direction="360"/>
+            </Grid.Effect>
             <StackPanel>
-                <my:NavigationButton Data="{DynamicResource ReducePathData}"
-                    x:Name="ControlPanelButton" Click="ControlPanelButton_Click" Width="50" HorizontalAlignment="Right"/>
-                <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" VerticalAlignment="Top">
-                <Border Width="50" Height="50" Margin="10 0 10 0" Background="White" CornerRadius="5"></Border>
-                <StackPanel>
+
+                <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" VerticalAlignment="Top" Margin="10 10 10 0">
+                    <Border Width="50" Height="50"  Background="White" CornerRadius="5"></Border>
+                    <StackPanel>
                         <TextBlock Text="Имя" Name="NameTextBlock"></TextBlock>
                         <TextBlock Text="Фамилия" Name="SurnameTextBlock"></TextBlock>
+                    </StackPanel>
                 </StackPanel>
             </StackPanel>
-                </StackPanel>
-            <StackPanel VerticalAlignment="Center">
+            <StackPanel VerticalAlignment="Center" Name="ControlStackPanel">
 
 
                 <my:NavigationButton Content="Профиль" Data="{StaticResource ProfilePathData}"
@@ -69,29 +96,5 @@
                 x:Name="ChangeAccountButton" Click="ChangeAccountButton_Click" VerticalAlignment="Bottom"/>
 
         </Grid>
-
-        <Frame NavigationUIVisibility="Hidden" x:Name="MenuFrame" Grid.Row="1" Grid.Column="1" Margin="5"/>
-
-        <Label Width="auto" Margin="0 5 0 0"
-               Foreground="White" Grid.ColumnSpan="2" Name="StatusBarLabel"
-               HorizontalContentAlignment="Center" 
-               />
-        <StackPanel  HorizontalAlignment="Right" Margin="2" Orientation="Horizontal" Grid.Column="1">
-            <Button Background="#FF5B5B5B" x:Name="CollapseButton" Click="CollapseButton_Click" Width="58" Style="{x:Null}">
-                <Path  Fill="#FF2F2F2F" Stretch="Fill" Name="HidePath"
-                       VerticalAlignment="Bottom" Margin="17 24 17 6"
-                       Style="{x:Null}"></Path>
-            </Button>
-            <Button Background="#FF5B5B5B" x:Name="FullScreenButton" Click="FullScreenButton_Click" Width="58" Style="{x:Null}">
-                <Path  Fill="#FF2F2F2F" Stretch="Fill" 
-                       Name="WindowStatePath" Margin="18 9 18 7" 
-                       Style="{x:Null}"></Path>
-            </Button>
-            <Button Background="#FF5B5B5B" x:Name="ExitButton" Click="ExitButton_Click" Width="58" Style="{x:Null}">
-                <Path  Fill="#FF2F2F2F" Stretch="Fill" 
-                       Name="ExitPath" Margin="18 8 18 8" 
-                       Style="{x:Null}" ></Path>
-            </Button>
-        </StackPanel>
     </Grid>
 </Window>
